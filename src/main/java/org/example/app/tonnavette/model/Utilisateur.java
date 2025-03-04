@@ -14,7 +14,6 @@ public class Utilisateur {
         this.nom = nom;
         this.email = email;
         this.role = role;
-
     }
 
     public Utilisateur(String nom, String email, String motDePasse, String role) {
