@@ -17,7 +17,7 @@
     <a href="${pageContext.request.contextPath}/utilisateurs">Utilisateurs</a>
     <a href="${pageContext.request.contextPath}/views/inscription.jsp">Inscription</a>
 </div>
-<form action="inscription" method="post">
+<form action="/sign-up" method="post">
     Nom: <input type="text" name="nom" required><br>
     Email: <input type="email" name="email" required><br>
     Mot de passe: <input type="password" name="motDePasse" required><br>
