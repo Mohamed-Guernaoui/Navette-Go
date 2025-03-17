@@ -11,7 +11,6 @@ public class Entreprise {
         this.id = id;
         Nom = nom;
         Email = email;
-
     }
 
 
