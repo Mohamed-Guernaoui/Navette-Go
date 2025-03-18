@@ -14,14 +14,23 @@
   </head>
   <body class="bg-[#f5f4f2]">
   <nav class="relative flex flex-row justify-between items-center w-full p-7 ">
+    <div class="flex flex-row gap-20">
+      <div>
+        <a href="../index.jsp">
+          <h1 class="text-[30px] font-bold">NavetteToGo</h1>
+        </a>
+      </div>
+    </div>
   </nav>
 
   <section class=" h-cover flex w-full items-center justify-center flex-col">
 
     <form
+            action="/sign-in"
+            method="post"
             class=" w-[80%] max-w-[400px] flex flex-col gap-6 justify-center items-center"
     >
-      <h1 class=" font-bold  font-gelasio capitalize text-4xl mb-14   ">
+      <h1 class=" font-bold font-gelasio capitalize text-4xl mb-14   ">
         Welcome Back
       </h1>
 
@@ -51,7 +60,7 @@
         </svg>
       </div>
 
-      <button onClick={HandeleSubmit} class="whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80 w-fit flex ">
+      <button type="submit" class=" cursor-pointer whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80 w-fit flex ">
         Login
       </button>
 
@@ -61,7 +70,7 @@
         <hr class=" w-1/2 bg-black" />
       </div>
 
-      <button class="flex items-center justify-center gap-4 w-[90%] center whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80">
+      <button class="cursor-pointer flex items-center justify-center gap-4 w-[90%] center whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80">
         <img src="https://th.bing.com/th/id/OIP.AUmnbiLoI6qsNjlDmrJ3CwHaH5?w=860&h=918&rs=1&pid=ImgDetMain" class="w-5 rounded-full " alt="" />
         Continue with Google
       </button>
@@ -69,10 +78,9 @@
       <p class="mt-6 text-dark-grey text-xl text-center">
         Don't have a account ?
         <span class=" underline cursor-pointer text-black">
-                <a href="inscription.jsp">Sign Up</a>
+                <a href="signup.jsp">Sign Up</a>
               </span>
       </p>
-
     </form>
   </section>
   </body>
