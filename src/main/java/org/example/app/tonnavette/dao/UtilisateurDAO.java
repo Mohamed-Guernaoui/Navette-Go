@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class UtilisateurDAO {
     private Connection connection;
@@ -51,6 +52,8 @@ public class UtilisateurDAO {
             }
         return utilisateurs;
     }
+    private static final Logger logger = Logger.getLogger(UtilisateurDAO.class.getName());
+
     public Utilisateur authentifier(String email, String motDePasse) {
         String sql = "SELECT * FROM Utilisateur WHERE email = ? AND motDePasse = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -58,9 +61,15 @@ public class UtilisateurDAO {
             stmt.setString(2, motDePasse);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return new Utilisateur(rs.getString("nom"), email, motDePasse, rs.getString("role"));
+                Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), email, motDePasse, rs.getString("role"));
+                // Log response
+                logger.info("This is an INFO log message");
+                System.out.println("User authenticated: " + utilisateur);
+                return utilisateur;
             }
         } catch (SQLException e) {
+            System.out.println("Authentication failed for email: " + email);
+
             e.printStackTrace();
         }
         return null;
