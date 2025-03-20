@@ -9,7 +9,10 @@
 <nav class="relative flex flex-row justify-between items-center w-full p-7 ">
   <div class="flex flex-row gap-20">
     <div>
-      <h1 class="text-[30px] font-bold">NavetteToGo</h1>
+      <a href="../../index.jsp">
+        <h1 style="font-family:  'Outfit', 'sans-serif'" class="text-[30px] font-bold">NavetteToGo</h1>
+
+      </a>
     </div>
     <div class="flex flex-row gap-8">
       <div class="flex relative flex-row justify-center items-center  ">
@@ -32,7 +35,7 @@
                   d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
           />
         </svg>
-        <button class=" bg-[#f3e322] cursor-pointer hover:opacity-80 py-3 border border-[#f3e322]   rounded-r-lg font-semibold  px-5">Search</button>
+        <button style="font-family:  'Outfit', 'sans-serif'"  class=" bg-[#f3e322] cursor-pointer hover:opacity-80 py-3 border border-[#f3e322]   rounded-r-lg font-semibold  px-5">Search</button>
       </div>
       <div class="flex flex-row justify-between items-center p-3 gap-2 w-52 h-full bg-gray-200 rounded-lg">
         <div class="flex gap-2">
@@ -40,7 +43,7 @@
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
           </svg>
-          <p class="font-semibold">Meknesa,Fes</p>
+          <p  style="font-family:  'Outfit', 'sans-serif'"  class="font-semibold">Meknes,Fes</p>
         </div>
 
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -70,10 +73,10 @@
     </div>
     <% } else { %>
     <div class="rounded-full flex flex-row justify-center items-center gap-3">
-      <a  class="whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80">
+      <a style="font-family:  'Outfit', 'sans-serif'"  class="whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80">
         Sign in
       </a>
-      <a href="../../views/login.jsp" class="whitespace-nowrap rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80 bg-gray-200">
+      <a style="font-family:  'Outfit', 'sans-serif'"  href="../../views/login.jsp" class="whitespace-nowrap rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80 bg-gray-200">
         Login
       </a>
 
