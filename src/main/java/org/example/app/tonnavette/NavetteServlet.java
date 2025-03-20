@@ -12,7 +12,7 @@ import org.example.app.tonnavette.model.Navette;
 
 import java.sql.Connection;
 
-@WebServlet("/navettes")
+@WebServlet("/home")
 public class NavetteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,11 +21,13 @@ public class NavetteServlet extends HttpServlet {
         List<Navette> navettes = null;
         try {
             navettes = navetteDAO.getAllNavettes();
+            System.out.println("Authentication failed for email: " + navettes.getFirst().getId());
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
         request.setAttribute("navettes", navettes);
-        request.getRequestDispatcher("/views/navettes.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

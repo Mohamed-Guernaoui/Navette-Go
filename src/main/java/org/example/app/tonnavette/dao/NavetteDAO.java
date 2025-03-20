@@ -5,9 +5,11 @@ import org.example.app.tonnavette.model.Navette;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class NavetteDAO {
     private Connection connection;
+    private static final Logger logger = Logger.getLogger(NavetteDAO.class.getName());
 
     public NavetteDAO(Connection connection) {
         this.connection = connection;
@@ -21,18 +23,23 @@ public class NavetteDAO {
             while (rs.next()) {
                 Navette n = new Navette();
                 n.setId(rs.getInt("id"));
-                n.setVilleDepart(rs.getString("Ville_Départ"));
-                n.setVilleArrivee(rs.getString("Ville_Arrivée"));
-                n.setHeureDepart(rs.getString("Heure_Départ"));
+                n.setVilleDepart(rs.getString("villeDepart"));
+                n.setVilleArrivee(rs.getString("villeArrivee"));
+                n.setHeureDepart(rs.getString("heureArrivee"));
+                n.setHeureArrivee(rs.getString("createdAt"));
+                System.out.println("DEBUG ~ " + rs.getString("villeArrivee"));
+
                 navettes.add(n);
             }
-            return navettes;
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("GET/index ~ NAVETTES " + navettes);
 
-    return navettes;
+        return navettes;
+
 
     }
+
 }
