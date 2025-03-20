@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 
 public class UtilisateurDAO {
     private Connection connection;
+    private static final Logger logger = Logger.getLogger(UtilisateurDAO.class.getName());
 
     public UtilisateurDAO(Connection connection) {
         this.connection = connection;
@@ -52,7 +53,6 @@ public class UtilisateurDAO {
             }
         return utilisateurs;
     }
-    private static final Logger logger = Logger.getLogger(UtilisateurDAO.class.getName());
 
     public Utilisateur authentifier(String email, String motDePasse) {
         String sql = "SELECT * FROM Utilisateur WHERE email = ? AND motDePasse = ?";
