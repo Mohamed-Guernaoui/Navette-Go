@@ -11,8 +11,7 @@ public class Navette {
     private String finAbonnement;
     private int nombreSieges;
     private int nombreAbonnes;
-
-    // Getters et Setters
+    private String createdAt;
 
     public int getId() {
         return id;
