@@ -25,17 +25,22 @@ public class NavetteDAO {
                 n.setId(rs.getInt("id"));
                 n.setVilleDepart(rs.getString("villeDepart"));
                 n.setVilleArrivee(rs.getString("villeArrivee"));
-                n.setHeureDepart(rs.getString("heureArrivee"));
-                n.setHeureArrivee(rs.getString("createdAt"));
-                System.out.println("DEBUG ~ " + rs.getString("villeArrivee"));
-
+                n.setHeureDepart(rs.getString("heureDepart"));
+                n.setHeureArrivee(rs.getString("heureArrivee"));
+                n.setCreatedAt(rs.getString("createdAt"));
                 navettes.add(n);
             }
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("GET/index ~ NAVETTES " + navettes);
+        for (Navette navette : navettes) {
+            System.out.println("Navette ID: " + navette.getId() +
+                    ", Depart: " + navette.getVilleDepart() +
+                    ", Arrivee: " + navette.getVilleArrivee() +
+                    ", Heure Depart: " + navette.getHeureDepart() +
+                    ", Heure Arrivee: " + navette.getHeureArrivee());
+        }
 
         return navettes;
 
