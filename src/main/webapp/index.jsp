@@ -38,14 +38,14 @@
             <div class="w-[70%] h-[80%] flex p-5 gap-10 mt-3 ">
                 <div class="flex flex-col items-center justify-center ">
                     <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]">Depart</p>
-                    <h2 style="font-family:  'Outfit', 'sans-serif'"  class="font-normal text-[1.375rem]">06:33</h2>
-                    <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]">Meknes</p>
+                    <h2 style="font-family:  'Outfit', 'sans-serif'"  class="font-normal text-[1.375rem]"><%= nav.getHeureDepart()  %></h2>
+                    <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]"><%= nav.getVilleDepart() %></p>
                 </div>
                 <div class="relative flex justify-center  items-center">
                     <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">
                     </div>
-                    <div class="relative h-4  flex flex-col items-center justify-center relative ">
-                        <span class="text-[10px] absolute -top-2  text-gray-700 "><%= "#NAV-"+ nav.getId()%></span>
+                    <div class="relative h-2  flex flex-col items-center justify-end relative ">
+                        <span class="text-[10px] absolute -top-3  text-gray-700 "><%= "#NAV-"+ nav.getId()%></span>
                         <hr class="h-1 w-20 border-l-2 border-slate-500 border-dashed"/>
                     </div>
                     <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">
@@ -54,8 +54,8 @@
                 </div>
                 <div class="flex flex-col items-center justify-center">
                     <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]">Arrivee</p>
-                    <h2 style="font-family:  'Outfit', 'sans-serif'"  class="font-normal text-[1.375rem]">06:33</h2>
-                    <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]">Sale</p>
+                    <h2 style="font-family:  'Outfit', 'sans-serif'"  class="font-normal text-[1.375rem]"><%= nav.getHeureArrivee() %></h2>
+                    <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]"><%= nav.getVilleArrivee() %></p>
                 </div>
             </div>
             <div class="w-[30%]  flex items-center justify-center ">
@@ -66,33 +66,6 @@
             </div>
     </div>
 
-
-<%--                    <div class=" flex flex-row h-full  overflow-hidden bg-red-300" >--%>
-<%--                        <div class="w-[40%] h-full flex flex-col justify-center items-center">--%>
-<%--                            <div class="relative flex gap-10 justify-center items-center ">--%>
-<%--                                <p style="font-family:  'Outfit', 'sans-serif'"--%>
-<%--                                   class="absolute right-10 text-slate-500"><%= nav.getHeureDepart()  %> </p>--%>
-<%--                                <div--%>
-<%--                                        class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">--%>
-<%--                                </div>--%>
-<%--                                <p style="font-family:  'Outfit', 'sans-serif'"  class="outfit absolute left-10">--%>
-<%--                                    <%= nav.getVilleDepart() %></p>--%>
-<%--                            </div>--%>
-<%--                            <hr class="h-12 w-[2px] border-l-2 border-slate-500 border-dashed"/>--%>
-<%--                            <div class="relative  flex gap-10 justify-center items-center ">--%>
-<%--                                <p style="font-family:  'Outfit', 'sans-serif'"--%>
-<%--                                   class="outfit absolute right-10 text-slate-500"><%= nav.getHeureArrivee() %></p>--%>
-<%--                                <div--%>
-<%--                                        class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">--%>
-<%--                                </div>--%>
-<%--                                <p style="font-family:  'Outfit', 'sans-serif'"  class="outfit absolute left-10 ">--%>
-<%--                                    <%= nav.getVilleArrivee() %></p>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="bg-red-200">--%>
-<%--                            <p>dkdkk</p>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
                 </div>
 
                 <%
