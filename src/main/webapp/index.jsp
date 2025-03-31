@@ -22,13 +22,20 @@
     document.addEventListener("DOMContentLoaded", function () {
         const Nodelist = document.querySelectorAll(".navette-item");
         const firstItem = Nodelist[0];
-        const navetteId = firstItem.getAttribute("data-id")
+        const navetteId = firstItem.getAttribute("data-id");
+        let selectedId = null;
+        if (!navetteId) {
+            return;
+        }
         fetchFirstNavette(navetteId);
+
 
         function displayNavetteDetails(navette) {
             if (!navette || Object.keys(navette).length === 0) {
                 document.getElementById("selected_navette").innerHTML = `<p class="text-red-500">Problem Occured</p>`;
             } else {
+
+
                 document.getElementById("selected_navette").innerHTML = `
                     <div class="max-w-2xl mx-auto p-6  ">
                         <div class="flex justify-between items-center">
@@ -68,9 +75,24 @@
         }
 
         function fetchFirstNavette(navetteId) {
-            document.getElementById("selected_navette").innerHTML = `<div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-    <div class="border-t-transparent border-solid animate-spin  rounded-full border-yellow-400 border-3 h-14 w-14"></div>
-</div>`
+            if (selectedId === navetteId) {
+                return;
+            }
+            for (let i = 0; i < Nodelist.length; i++) {
+                const navId = Nodelist[i].getAttribute("data-id");
+
+                if (parseInt(navetteId) === parseInt(navId)) {
+                    // Add the border class to the matched element
+                    Nodelist[i].classList.add("border");
+                } else {
+                    // Remove the border class from other elements
+                    Nodelist[i].classList.remove("border");
+                }
+            }
+            document.getElementById("selected_navette").innerHTML = `
+                    <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+                        <div class="border-t-transparent border-solid animate-spin  rounded-full border-yellow-400 border-3 h-14 w-14"></div>
+                    </div>`
             setTimeout(() => {
                 fetch(`/nav?id=` + navetteId)
                     .then(response => {
@@ -80,6 +102,7 @@
                     if (data.error) {
                         document.getElementById("selected_navette").innerHTML = `<p class="text-red-500">${data.error}</p>`;
                     } else {
+                        selectedId = navetteId
                         displayNavetteDetails(data)
                     }
 
@@ -94,6 +117,7 @@
         document.querySelectorAll(".navette-item").forEach(item => {
             item.addEventListener("click", function () {
                 let navetteId = this.getAttribute("data-id");
+
                 fetchFirstNavette(navetteId)
             });
         });
@@ -112,18 +136,18 @@
             <div class="flex flex-col gap-4">
                 <%
                     List<Navette> navs = (List<Navette>) request.getAttribute("navettes");
-
+                    System.out.println(navs);
                     if (navs != null && !navs.isEmpty()) {
                         for (Navette nav : navs) {
 
                 %>
                 <div
-                        class="relative w-[480px] mx-auto p-6 bg-white shadow-lg rounded-2xl border border-yellow-400 cursor-pointer navette-item"
+                        class="relative w-[480px] mx-auto p-6 bg-white rounded-2xl border border-yellow-400 cursor-pointer navette-item"
                         data-id="<%= nav.getId() %>">
 
                     <div  class="w-full h-full flex">
                         <div class="w-full flex  flex-col">
-                            <div class="h-[80%] w-full flex  items-center justify-between px-5">
+                            <div class="h-[80%] w-full flex items-center justify-between px-5">
                                             <div class="flex flex-col items-center justify-center ">
                                                 <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]">Depart</p>
                                                 <h2 style="font-family:  'Outfit', 'sans-serif'"
@@ -201,7 +225,7 @@
             </div>
             <div class="w-2/3 flex justify-end">
                 <div id="selected_navette"
-                     class="relative h-[700px] w-[80%] bg-white h-40 border border-gray-200 rounded-xl box-shadow">
+                     class="relative h-[500px] w-[80%] bg-white h-40 border border-gray-200 rounded-xl box-shadow">
 
                 </div>
             </div>
