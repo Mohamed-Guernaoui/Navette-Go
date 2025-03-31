@@ -20,6 +20,10 @@ public class NavetteDAO {
         String sql = "SELECT * FROM Navette";
         try( PreparedStatement ps = connection.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()){
+            System.out.println("Navette ID: " + rs);
+            if (!rs.next()) {
+                System.out.println("No Navette found");
+            }
             while (rs.next()) {
                 Navette n = new Navette();
                 n.setId(rs.getInt("id"));
@@ -55,6 +59,7 @@ public class NavetteDAO {
             ps.setInt(1, id);  // Set the ID parameter
 
             try (ResultSet rs = ps.executeQuery()) {
+                System.out.println("Navette ID: " + rs);
                 if (rs.next()) {
                     navette = new Navette(); // Create the Navette object
                     navette.setId(rs.getInt("id"));
