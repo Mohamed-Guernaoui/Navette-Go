@@ -21,7 +21,11 @@ public class EntrepriseDAO {
             stmt.setString(2, motDePasse);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return new Entreprise(rs.getInt("Id"), rs.getString("Nom"), email);
+                Entreprise societe = new Entreprise();
+                societe.setEmail(rs.getString("email"));
+                societe.setNom(rs.getString("nom"));
+
+                return societe;
             }
         } catch (SQLException e) {
             e.printStackTrace();
