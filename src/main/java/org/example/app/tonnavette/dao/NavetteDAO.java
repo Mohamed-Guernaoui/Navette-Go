@@ -1,6 +1,7 @@
 package org.example.app.tonnavette.dao;
 
 import org.example.app.tonnavette.model.Navette;
+import org.example.app.tonnavette.model.Entreprise;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -52,7 +53,22 @@ public class NavetteDAO {
 
     public Navette getNavetteById(int id) {
         Navette navette = null;
-        String sql = "SELECT * FROM Navette WHERE id = ?";
+        String sql = "SELECT " +
+                "    n.id AS navette_id, " +
+                "    n.villeDepart, " +
+                "    n.villeArrivee, " +
+                "    n.heureDepart, " +
+                "    n.heureArrivee, " +
+                "    n.debutAbonnement, " +
+                "    n.finAbonnement, " +
+                "    n.nombreSieges, " +
+                "    n.nombreAbonnes, " +
+                "    n.createdAt, " +
+                "    e.id AS societe_id, " +
+                "    e.nom AS societe_nom " +
+                "FROM Navette n " +
+                "JOIN Entreprise e ON n.societeId = e.id " +
+                "WHERE n.id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);  // Set the ID parameter
@@ -61,12 +77,22 @@ public class NavetteDAO {
                 System.out.println("Navette ID: " + rs);
                 if (rs.next()) {
                     navette = new Navette(); // Create the Navette object
-                    navette.setId(rs.getInt("id"));
+                    navette.setId(rs.getInt("navette_id"));
                     navette.setVilleDepart(rs.getString("villeDepart"));
                     navette.setVilleArrivee(rs.getString("villeArrivee"));
                     navette.setHeureDepart(rs.getString("heureDepart"));
                     navette.setHeureArrivee(rs.getString("heureArrivee"));
+                    navette.setDebutAbonnement(rs.getString("debutAbonnement"));
+                    navette.setFinAbonnement(rs.getString("finAbonnement"));
+                    navette.setNombreSieges(rs.getInt("nombreSieges"));
+                    navette.setNombreAbonnes(rs.getInt("nombreAbonnes"));
                     navette.setCreatedAt(rs.getString("createdAt"));
+                    // Setting the associated Entreprise
+                    Entreprise societe = new Entreprise();
+                    societe.setId(rs.getInt("societe_id"));
+                    societe.setNom(rs.getString("societe_nom"));
+                    navette.setSociete(societe);
+
                 }
             }
         } catch (SQLException e) {
