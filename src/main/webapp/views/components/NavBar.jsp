@@ -9,34 +9,40 @@
 <nav class="relative flex flex-row justify-between items-center w-full p-7 ">
   <div class="flex flex-row gap-20">
     <div>
-      <a href="../../index.jsp">
+      <a href="./home">
         <h1 style="font-family:  'Outfit', 'sans-serif'" class="text-[30px] font-bold">NavetteToGo</h1>
 
       </a>
     </div>
     <div class="flex flex-row gap-8">
-      <div class="flex relative flex-row justify-center items-center  ">
-        <input
-                type="text"
-                class=" bg-white border py-3  w-[300px] md:pl-12  rounded-l-lg outline-none focus:border-2 border-[#f3e322]"
-                placeholder="search for navettes..."
-        >
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width={1.5}
-                stroke="currentColor"
-                class="w-6 h-6 absolute left-[10%] md:pointer-events-none md:left-5 top-1/2 -translate-y-1/2 text-xl text-dark-grey "
-        >
-          <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-          />
-        </svg>
-        <button style="font-family:  'Outfit', 'sans-serif'"  class=" bg-[#f3e322] cursor-pointer hover:opacity-80 py-3 border border-[#f3e322]   rounded-r-lg font-semibold  px-5">Search</button>
-      </div>
+      <form id="searchForm" method="get" action="/search-navette">
+        <div class="flex relative flex-row justify-center items-center  ">
+          <input
+                  id="searchInput"
+                  type="text"
+                  class=" bg-white border py-3  w-[300px] md:pl-12  rounded-l-lg outline-none focus:border-2 border-[#f3e322]"
+                  placeholder="Find your destination"
+          >
+          <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width={1.5}
+                  stroke="currentColor"
+                  class="w-6 h-6 absolute left-[10%] md:pointer-events-none md:left-5 top-1/2 -translate-y-1/2 text-xl text-dark-grey "
+          >
+            <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+          <button type="submit" style="font-family:  'Outfit', 'sans-serif'"
+                  class=" bg-[#f3e322] cursor-pointer hover:opacity-80 py-3 border border-[#f3e322]   rounded-r-lg font-semibold  px-5">
+            Search
+          </button>
+        </div>
+      </form>
       <div class="flex flex-row justify-between items-center p-3 gap-2 w-52 h-full bg-gray-200 rounded-lg">
         <div class="flex gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -66,10 +72,6 @@
         <img class="rounded-full object-cover w-full h-full"
              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.FiqQVZ9jc1WyZpJXcOa1MQHaE8%26pid%3DApi&f=1" alt="User"/>
       </button>
-
-<%--      <div id="userNavPanel" class="hidden">--%>
-<%--        <jsp:include page="user-navigation.jsp"/>--%>
-<%--      </div>--%>
     </div>
     <% } else { %>
     <div class="rounded-full flex flex-row justify-center items-center gap-3">
@@ -86,6 +88,14 @@
   </div>
 </nav>
 <script>
+  document.getElementById("searchForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    let inputValue = document.getElementById("searchInput").value.trim();
+    if (inputValue !== "") {
+      window.location.href = `/search-navette?q=` + encodeURIComponent(inputValue);
+    }
+  });
 
   function toggleUserNav() {
     document.getElementById("userNavPanel").classList.toggle("hidden");
