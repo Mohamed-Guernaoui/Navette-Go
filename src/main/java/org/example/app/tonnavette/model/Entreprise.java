@@ -7,10 +7,33 @@ public class Entreprise {
     private String Email;
     private String hashedPassword;
 
-    public Entreprise(int id, String nom, String email) {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public void setNom(String nom) {
         Nom = nom;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
         Email = email;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
     }
 
 
