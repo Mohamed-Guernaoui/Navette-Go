@@ -223,11 +223,7 @@
                     }
                 %>
             </div>
-            <div class="w-2/3 flex justify-end">
-                <div id="selected_navette"
-                     class="relative h-[500px] w-[80%] bg-white h-40 border border-gray-200 rounded-xl box-shadow">
-
-                </div>
+            <div id="selected_navette" class="relative w-2/3 flex justify-end">
             </div>
         </div>
 
