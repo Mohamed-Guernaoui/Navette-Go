@@ -83,4 +83,30 @@ public class NavetteDAO {
         return navette;
     }
 
+    public List<Navette> searchNavettes(String query) {
+        List<Navette> navettes = new ArrayList<>();
+        String sql = "SELECT * FROM Navette WHERE villeDepart LIKE ? OR villeArrivee LIKE ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, "%" + query + "%");
+            ps.setString(2, "%" + query + "%");
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Navette n = new Navette();
+                n.setId(rs.getInt("id"));
+                n.setVilleDepart(rs.getString("villeDepart"));
+                n.setVilleArrivee(rs.getString("villeArrivee"));
+                n.setHeureDepart(rs.getString("heureDepart"));
+                n.setHeureArrivee(rs.getString("heureArrivee"));
+                n.setCreatedAt(rs.getString("createdAt"));
+                navettes.add(n);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return navettes;
+    }
+
+
 }
