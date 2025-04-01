@@ -18,8 +18,8 @@ public class NavetteDAO {
     public List<Navette> getAllNavettes() throws SQLException {
         List<Navette> navettes = new ArrayList<>();
         String sql = "SELECT * FROM Navette";
-        try( PreparedStatement ps = connection.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()){
+        try (PreparedStatement ps = connection.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
             System.out.println("Navette ID: " + rs);
             if (!rs.next()) {
                 System.out.println("No Navette found");
@@ -34,8 +34,7 @@ public class NavetteDAO {
                 n.setCreatedAt(rs.getString("createdAt"));
                 navettes.add(n);
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         for (Navette navette : navettes) {

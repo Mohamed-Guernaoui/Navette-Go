@@ -8,10 +8,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EntrepriseDAO {
-    private Connection connection;
+    private final Connection connection;
+
     public EntrepriseDAO(Connection connection) {
         this.connection = connection;
     }
+
     public Entreprise authentifier(String email, String motDePasse) {
         String sql = "SELECT * FROM Utilisateur WHERE email = ? AND motDePasse = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -19,7 +21,7 @@ public class EntrepriseDAO {
             stmt.setString(2, motDePasse);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return new Entreprise(rs.getInt("Id"),rs.getString("Nom"), email );
+                return new Entreprise(rs.getInt("Id"), rs.getString("Nom"), email);
             }
         } catch (SQLException e) {
             e.printStackTrace();

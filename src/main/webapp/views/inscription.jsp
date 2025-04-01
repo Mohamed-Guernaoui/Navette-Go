@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>  Inscription    </title>
+    <title> Inscription </title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style/style.css">
 </head>
 <body>

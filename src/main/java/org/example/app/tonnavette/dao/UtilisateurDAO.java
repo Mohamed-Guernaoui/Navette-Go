@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class UtilisateurDAO {
-    private Connection connection;
+    private final Connection connection;
     private static final Logger logger = Logger.getLogger(UtilisateurDAO.class.getName());
 
     public UtilisateurDAO(Connection connection) {
@@ -32,25 +32,26 @@ public class UtilisateurDAO {
             return false;
         }
     }
-    public List<Utilisateur> getAllUsers(){
+
+    public List<Utilisateur> getAllUsers() {
         List<Utilisateur> utilisateurs = new ArrayList<>();
 
 
         String query = "SELECT * FROM Utilisateur";
-            try(PreparedStatement stmt = connection.prepareStatement(query);
-                ResultSet res = stmt.executeQuery()){
-                while (res.next()) {
-                    Utilisateur user = new Utilisateur(
-                            res.getInt("id"),
-                            res.getString("nom"),
-                            res.getString("email"),
-                            res.getString("role")
-                    );
-                    utilisateurs.add(user);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try (PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet res = stmt.executeQuery()) {
+            while (res.next()) {
+                Utilisateur user = new Utilisateur(
+                        res.getInt("id"),
+                        res.getString("nom"),
+                        res.getString("email"),
+                        res.getString("role")
+                );
+                utilisateurs.add(user);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return utilisateurs;
     }
 

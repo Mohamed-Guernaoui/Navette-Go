@@ -145,73 +145,78 @@
                         class="relative w-[480px] mx-auto p-6 bg-white rounded-2xl border border-yellow-400 cursor-pointer navette-item"
                         data-id="<%= nav.getId() %>">
 
-                    <div  class="w-full h-full flex">
+                    <div class="w-full h-full flex">
                         <div class="w-full flex  flex-col">
                             <div class="h-[80%] w-full flex items-center justify-between px-5">
-                                            <div class="flex flex-col items-center justify-center ">
-                                                <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]">Depart</p>
-                                                <h2 style="font-family:  'Outfit', 'sans-serif'"
-                                                    class="font-semibold text-[1.375rem]"><%= nav.getHeureDepart()  %>
-                                                </h2>
-                                                <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]"><%= nav.getVilleDepart() %></p>
-                                            </div>
-                                            <div class="relative flex justify-center  items-center">
-                                                <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">
-                                                </div>
-                                                <div class="relative h-2  flex flex-col items-center justify-end relative ">
+                                <div class="flex flex-col items-center justify-center ">
+                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-light text-[.75rem]">
+                                        Depart</p>
+                                    <h2 style="font-family:  'Outfit', 'sans-serif'"
+                                        class="font-semibold text-[1.375rem]"><%= nav.getHeureDepart()  %>
+                                    </h2>
+                                    <p style="font-family:  'Outfit', 'sans-serif'"
+                                       class="font-light text-[.75rem]"><%= nav.getVilleDepart() %>
+                                    </p>
+                                </div>
+                                <div class="relative flex justify-center  items-center">
+                                    <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">
+                                    </div>
+                                    <div class="relative h-2  flex flex-col items-center justify-end relative ">
                                                 <span style="font-family:  'Outfit', 'sans-serif'"
                                                       class="text-[10px] font-normal absolute -top-3  text-gray-700
-                                                        "><%= "#NAV-"+ nav.getId()%></span>
-                                                    <hr class="h-1 w-20 border-l-2 border-slate-500 border-dashed"/>
-                                                </div>
-                                                <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">
-                                                </div>
+                                                        "><%= "#NAV-" + nav.getId()%></span>
+                                        <hr class="h-1 w-20 border-l-2 border-slate-500 border-dashed"/>
+                                    </div>
+                                    <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">
+                                    </div>
 
-                                            </div>
-                                            <div class="flex flex-col items-center justify-center">
-                                                <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]">Arrivee</p>
-                                                <h2 style="font-family:  'Outfit', 'sans-serif'"
-                                                    class="font-semibold text-[1.375rem]"><%= nav.getHeureArrivee() %>
-                                                </h2>
-                                                <p style="font-family:  'Outfit', 'sans-serif'"  class="font-light text-[.75rem]"><%= nav.getVilleArrivee() %></p>
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="flex flex-col items-center justify-center">
+                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-light text-[.75rem]">
+                                        Arrivee</p>
+                                    <h2 style="font-family:  'Outfit', 'sans-serif'"
+                                        class="font-semibold text-[1.375rem]"><%= nav.getHeureArrivee() %>
+                                    </h2>
+                                    <p style="font-family:  'Outfit', 'sans-serif'"
+                                       class="font-light text-[.75rem]"><%= nav.getVilleArrivee() %>
+                                    </p>
+                                </div>
+                            </div>
                             <div class="pl-5 h-[20%] flex justify-between items-center mt-5 ">
-                                            <%
-                                                // Assuming nav.getCreatedAt() returns "2025-03-20 17:56:45"
-                                                String createdAt = nav.getCreatedAt();
+                                <%
+                                    // Assuming nav.getCreatedAt() returns "2025-03-20 17:56:45"
+                                    String createdAt = nav.getCreatedAt();
 
-                                                // Define input and output date formats
-                                                SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                                                SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd, yyyy");
+                                    // Define input and output date formats
+                                    SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                    SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd, yyyy");
 
-                                                // Parse input string to Date object
-                                                Date date = inputFormat.parse(createdAt);
+                                    // Parse input string to Date object
+                                    Date date = inputFormat.parse(createdAt);
 
-                                                // Format date to desired output
-                                                String formattedDate = outputFormat.format(date);
-                                            %>
-                                            <p style="font-family:  'Outfit', 'sans-serif'"
-                                               class="text-[0.75rem] text-gray-500"
-                                            >Created
-                                                At:
-                                                <span class="text-black">
+                                    // Format date to desired output
+                                    String formattedDate = outputFormat.format(date);
+                                %>
+                                <p style="font-family:  'Outfit', 'sans-serif'"
+                                   class="text-[0.75rem] text-gray-500"
+                                >Created
+                                    At:
+                                    <span class="text-black">
                                                       <%=
                                                       formattedDate
                                                       %>
                                                 </span>
-                                            </p>
+                                </p>
                                 <button style="font-family:  'Outfit', 'sans-serif'"
                                         class=" cursor-pointer px-6 py-2 border-2 border-yellow-400 text-yellow-500 font-medium rounded-lg hover:bg-yellow-400 hover:text-white transition-all">
                                     Inscrivez
                                 </button>
 
-                                        </div>
-                                    </div>
-
-
-
                             </div>
+                        </div>
+
+
+                    </div>
                 </div>
 
                 <%

@@ -13,6 +13,7 @@ public class InscriptionServlet extends HttpServlet {
 //        res.setContentType("text/html");
         res.getWriter().write("Servlet reached successfully!"); // Debugging
     }
+
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 //        res.setContentType("text/html");
 

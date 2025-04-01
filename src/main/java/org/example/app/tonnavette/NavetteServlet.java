@@ -21,7 +21,7 @@ public class NavetteServlet extends HttpServlet {
         List<Navette> navettes = null;
         try {
             navettes = navetteDAO.getAllNavettes();
-            System.out.println("Authentication failed for email: " + navettes.getFirst().getId());
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
