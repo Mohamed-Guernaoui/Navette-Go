@@ -12,6 +12,7 @@ public class Navette {
     private int nombreSieges;
     private int nombreAbonnes;
     private String createdAt;
+    private Entreprise societe;
 
     public String getCreatedAt(){
         return createdAt;
@@ -81,6 +82,14 @@ public class Navette {
     }
     public void setNombreAbonnes(int nombreAbonnes) {
         this.nombreAbonnes = nombreAbonnes;
+    }
+
+    public Entreprise getSociete() {
+        return societe;
+    }
+
+    public void setSociete(Entreprise societe) {
+        this.societe = societe;
     }
 
 }
