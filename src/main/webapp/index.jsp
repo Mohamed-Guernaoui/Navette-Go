@@ -34,41 +34,71 @@
             if (!navette || Object.keys(navette).length === 0) {
                 document.getElementById("selected_navette").innerHTML = `<p class="text-red-500">Problem Occured</p>`;
             } else {
-
-
+                console.log(navette)
                 document.getElementById("selected_navette").innerHTML = `
-                    <div class="max-w-2xl mx-auto p-6  ">
-                        <div class="flex justify-between items-center">
-                            <div class="text-left">
-                                <p class="text-gray-500 text-sm">Depart</p>
-                                <p class="text-3xl font-bold text-gray-900"> ` + navette.heureDepart + `</p>
-                                <p class="text-lg text-gray-700">` + navette.villeDepart + `</p>
-                            </div>
+                <div class="w-full mx-auto bg-white shadow-xs rounded-lg p-6">
+                    <div class="flex justify-between text-gray-500 text-sm">
+                        <span>Order #123456</span>
+                        <span>March 20, 2025</span>
+                    </div>
+                    <h2 class="text-xl font-semibold text-center my-2">B 21:25</h2>
+                    <p class="text-center text-gray-500 text-sm">Estimated Arrival</p>
 
-                            <div class="flex flex-col items-center space-y-2">
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-4 h-4 bg-black rounded-full"></div>
-                                    <p class="text-gray-500 text-sm">` + navette.id + `</p>
-                                    <div class="w-4 h-4 bg-black rounded-full"></div>
-                                </div>
-                                <div class="border-t-2 border-dashed border-gray-400 w-24"></div>
-                            </div>
+                    <div class="flex justify-center my-4 space-x-4">
+                        <button class="bg-yellow-400 p-2 rounded-full shadow-md">
+                            ✅
+                        </button>
+                        <button class="bg-yellow-400 p-2 rounded-full shadow-md">
+                            📅
+                        </button>
+                        <button class="bg-gray-300 p-2 rounded-full shadow-md">
+                            ⚙️
+                        </button>
+                        <button class="bg-gray-300 p-2 rounded-full shadow-md">
+                            🅿️
+                        </button>
+                    </div>
 
-                            <div class="text-right">
-                                <p class="text-gray-500 text-sm">Arrivee</p>
-                                <p class="text-3xl font-bold text-gray-900"> ` + navette.heureArrivee + `</p>
-                                <p class="text-lg text-gray-700"> ` + navette.villeArrivee + `</p>
-                            </div>
+                    <div class="flex justify-between text-gray-600 text-sm">
+                        <button class="border border-gray-300 py-1 px-4 rounded-lg">Support</button>
+                        <button class="border border-gray-300 py-1 px-4 rounded-lg">View on Map ➡️</button>
+                    </div>
+
+                    <div class="my-4 border-t border-gray-300 pt-4">
+                        <h3 class="text-gray-700 font-semibold">Address</h3>
+                        <p class="text-gray-500">Geologicheskaya Street, 50</p>
+                    </div>
+
+                    <div class="my-4 border-t border-gray-300 pt-4">
+                        <h3 class="text-gray-700 font-semibold">Order Summary</h3>
+                        <div class="flex justify-between items-center text-gray-500 text-sm mt-2">
+                            <img src="https://via.placeholder.com/40" alt="product" class="w-10 h-10 rounded-lg">
+                            <p>Chips "San COCT" Original</p>
+                            <span>2.3₽</span>
                         </div>
+                    </div>
 
-                        <div class="mt-4 flex justify-between items-center">
-                            <p class="text-gray-500 text-sm">Created At: <span class="font-medium text-gray-700"> ` +
-                    navette.createdAt + `</span></p>
-                            <button class="px-6 py-2 border-2 border-yellow-400 text-yellow-500 font-medium rounded-lg hover:bg-yellow-400 hover:text-white transition-all">
-                                Inscrivez
-                            </button>
+                    <div class="my-4 border-t border-gray-300 pt-4">
+                        <h3 class="text-gray-700 font-semibold">Summary</h3>
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <p>Item Cost</p>
+                            <span>2.3₽</span>
                         </div>
-                    </div> `;
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <p>Delivery Fee</p>
+                            <span>9₽</span>
+                        </div>
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <p>Service Charge</p>
+                            <span>0.8₽</span>
+                        </div>
+                        <div class="flex justify-between font-semibold text-lg mt-2">
+                            <p>Total</p>
+                            <span>12.3₽</span>
+                        </div>
+                    </div>
+                </div>`
+
             }
 
 
@@ -132,8 +162,8 @@
                 Navettes Disponibles
             </h1>
         </div>
-        <div class="w-full flex mt-5">
-            <div class="flex flex-col gap-4">
+        <div class="w-full flex flex-row gap-10 mt-5">
+            <div class="flex flex-col gap-5">
                 <%
                     List<Navette> navs = (List<Navette>) request.getAttribute("navettes");
                     System.out.println(navs);
@@ -142,7 +172,7 @@
 
                 %>
                 <div
-                        class="relative w-[480px] mx-auto p-6 bg-white rounded-2xl border border-yellow-400 cursor-pointer navette-item"
+                        class="relative w-[480px] shadow-xs mx-auto p-6 bg-white rounded-lg border border-yellow-400 cursor-pointer navette-item"
                         data-id="<%= nav.getId() %>">
 
                     <div class="w-full h-full flex">
@@ -228,6 +258,7 @@
                     }
                 %>
             </div>
+
             <div id="selected_navette" class="relative w-2/3 flex justify-end">
             </div>
         </div>
