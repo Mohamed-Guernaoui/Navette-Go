@@ -33,6 +33,12 @@ public class GetNavetteDetailsServlet extends HttpServlet {
 
             Navette nav = navetteDAO.getNavetteById(navetteId);
 
+            System.out.println("💛💛💛💛💛Navette: " +
+                    ", Depart: " + nav.getVilleDepart() +
+                    ", Arrivee: " + nav.getVilleArrivee() +
+                    ", Heure Depart: " + nav.getHeureDepart() +
+                    ", Heure Arrivee: " + nav.getHeureArrivee());
+
             if (nav == null) {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
                 response.getWriter().write("{\"error\": \"Navette not found\"}");
