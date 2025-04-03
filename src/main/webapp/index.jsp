@@ -13,7 +13,8 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style/indx.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+          rel="stylesheet">
 </head>
 <body class="bg-[#f5f4f2]">
 <jsp:include page="views/components/NavBar.jsp"/>
@@ -39,13 +40,13 @@
                 <div class="w-full mx-auto bg-white shadow-xs rounded-lg p-6">
                     <div class="flex justify-between items-center text-gray-500 text-sm">
                        <span style="font-family:  'Outfit', 'sans-serif'" class="text-[13px] font-normal   text-gray-500">
-                            Order #123456
+                            #NT-` + navette.id + `
                         </span>
                        <div class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
-                            MedMks
+                            Active
                         </div>
                     </div>
                     <div class="w-full flex justify-center p-4 ">
@@ -53,9 +54,9 @@
                                  <div class="flex flex-col items-center justify-center ">
                                     <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">
                                         Depart</p>
-                                    <h2 style="font-family:  'Outfit', 'sans-serif'" class="font-semibold text-[2rem]">10:00
+                                    <h2 style="font-family:  'Outfit', 'sans-serif'" class="font-semibold text-[2rem]">` + navette.heureDepart + `
                                     </h2>
-                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">Meknes
+                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">` + navette.villeDepart + `
                                     </p>
                                 </div>
                                 <div class="z-10 w-4 h-4 rounded-full bg-green-500 ring-4 ring-green-100 flex items-center justify-center">
@@ -71,21 +72,21 @@
                                     <div class="h-full w-1/2 bg-green-500"></div>
 
                                     <!-- Journey Info -->
-                                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-3 rounded-full border border-gray-100 shadow-sm">
-                                        <div class="flex items-center gap-3">
+                                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white px-3 rounded-full border border-gray-100 shadow-sm">
+                                        <div class="flex items-center gap-3 py-2">
                                             <!-- Seats Info -->
                                             <div class="flex items-center gap-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                                 </svg>
-                                                <span class="text-xs text-gray-600">23/42</span>
+                                                <span style="font-family:  'Inter', 'sans-serif'" class="text-sm text-gray-600 text-nowrap">` + navette.nombreAbonnes + ` / ` + navette.nombreSieges + `</span>
                                             </div>
                                             <!-- Duration -->
                                             <div class="flex items-center gap-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                 </svg>
-                                                <span class="text-xs text-gray-600">1h 30m</span>
+                                                <span style="font-family:  'Inter', 'sans-serif'" class="text-sm text-gray-600 text-nowrap">1h 30m</span>
                                             </div>
                                         </div>
                                     </div>
@@ -100,9 +101,9 @@
                                  <div class="flex flex-col items-center justify-center ">
                                     <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">
                                         Arrivee</p>
-                                    <h2 style="font-family:  'Outfit', 'sans-serif'" class="font-semibold text-[2rem]">12:00
+                                    <h2 style="font-family:  'Outfit', 'sans-serif'" class="font-semibold text-[2rem]">` + navette.heureArrivee + `
                                     </h2>
-                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">Kenitra
+                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">` + navette.villeArrivee + `
                                     </p>
                                 </div>
 
@@ -116,8 +117,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                                 <div>
-                                    <p class="text-xs text-gray-500">Subscription Period</p>
-                                    <p class="text-xs font-medium text-gray-700">31 Mar 2025 - 31 Mar 2025</p>
+                                    <p style="font-family:  'Outfit', 'sans-serif'"   class="text-md text-gray-500">Subscription Period</p>
+                                    <p style="font-family:  'Inter', 'sans-serif'"  class="text-md font-medium text-gray-700">` + new Date(navette.debutAbonnement).toLocaleDateString() +
+                    ` - ` + new Date(navette.finAbonnement).toLocaleDateString() + `</p>
                                 </div>
                             </div>
 
@@ -127,8 +129,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                 </svg>
                                 <div>
-                                    <p class="text-xs text-gray-500">Route ID</p>
-                                    <p class="text-xs font-medium text-gray-700">#RT-2</p>
+                                    <p  style="font-family:  'Outfit', 'sans-serif'" class="text-md text-gray-500">Route ID</p>
+                                    <p style="font-family:  'Inter', 'sans-serif'"  class="text-md font-medium text-gray-700">#RT-2</p>
                                 </div>
                             </div>
                      </div>
