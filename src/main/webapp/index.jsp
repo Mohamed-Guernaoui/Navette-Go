@@ -159,10 +159,10 @@
                 }
             }
             document.getElementById("selected_navette").innerHTML = `
-                    <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-                        <div class="border-t-transparent border-solid animate-spin  rounded-full border-yellow-400 border-3 h-14 w-14"></div>
+                    <div class="absolute right-1/2 top-20  transform translate-x-1/2 translate-y-1/2 ">
+                        <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-3 h-14 w-14"></div>
                     </div>`
-            // setTimeout(() => {
+            setTimeout(() => {
                 fetch(`/nav?id=` + navetteId)
                     .then(response => {
                         return response.json();
@@ -178,7 +178,7 @@
                 })
 
                     .catch(error => console.error("Error fetching navette:", error));
-            // }, 1000)
+            }, 1000)
 
         }
 
@@ -243,87 +243,6 @@
                         for (Navette nav : navs) {
 
                 %>
-                <%--                <div--%>
-                <%--                        class="relative w-[480px] shadow-xs mx-auto p-6 bg-white rounded-lg border border-yellow-400 cursor-pointer navette-item"--%>
-                <%--                        data-id="<%= nav.getId() %>">--%>
-
-                <%--                    <div class="w-full h-full flex">--%>
-                <%--                        <div class="w-full flex  flex-col">--%>
-                <%--                            <div class="h-[80%] w-full flex items-center justify-between px-5">--%>
-                <%--                                <div class="flex flex-col items-center justify-center ">--%>
-                <%--                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-light text-[.85rem]">--%>
-                <%--                                        Depart</p>--%>
-                <%--                                    <h2 style="font-family:  'Outfit', 'sans-serif'"--%>
-                <%--                                        class="font-semibold text-[1.5rem]"><%= nav.getHeureDepart()  %>--%>
-                <%--                                    </h2>--%>
-                <%--                                    <p style="font-family:  'Outfit', 'sans-serif'"--%>
-                <%--                                       class="font-light text-[.85rem]"><%= nav.getVilleDepart() %>--%>
-                <%--                                    </p>--%>
-                <%--                                </div>--%>
-                <%--                                <div class="relative flex justify-center  items-center">--%>
-                <%--                                    <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">--%>
-                <%--                                    </div>--%>
-                <%--                                    <div class="relative h-2  flex flex-col items-center justify-end relative ">--%>
-                <%--                                                <span style="font-family:  'Outfit', 'sans-serif'"--%>
-                <%--                                                      class="text-[10px] font-normal absolute -top-3  text-gray-700--%>
-                <%--                                                        "><%= "#NAV-" + nav.getId()%></span>--%>
-                <%--                                        <hr class="h-1 w-20 border-l-2 border-slate-500 border-dashed"/>--%>
-                <%--                                    </div>--%>
-                <%--                                    <div class="z-10 w-1 h-1 p-1  rounded-full text-slate-700 ring-4 ring-black bg-white   ">--%>
-                <%--                                    </div>--%>
-
-                <%--                                </div>--%>
-                <%--                                <div class="flex flex-col items-center justify-center">--%>
-                <%--                                    <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[.85rem]">--%>
-                <%--                                        Arrivee</p>--%>
-                <%--                                    <h2 style="font-family:  'Outfit', 'sans-serif'"--%>
-                <%--                                        class="font-semibold text-[1.5rem]"><%= nav.getHeureArrivee() %>--%>
-                <%--                                    </h2>--%>
-                <%--                                    <p style="font-family:  'Outfit', 'sans-serif'"--%>
-                <%--                                       class="font-normal text-[.85rem]"><%= nav.getVilleArrivee() %>--%>
-                <%--                                    </p>--%>
-                <%--                                </div>--%>
-                <%--                            </div>--%>
-                <%--                            <div class="pl-5 h-[20%] flex justify-between items-center mt-5 ">--%>
-                <%--                                <%--%>
-                <%--                                    // Assuming nav.getCreatedAt() returns "2025-03-20 17:56:45"--%>
-                <%--                                    String createdAt = nav.getCreatedAt();--%>
-
-                <%--                                    // Define input and output date formats--%>
-                <%--                                    SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");--%>
-                <%--                                    SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd, yyyy");--%>
-
-                <%--                                    // Parse input string to Date object--%>
-                <%--                                    Date date = inputFormat.parse(createdAt);--%>
-
-                <%--                                    // Format date to desired output--%>
-                <%--                                    String formattedDate = outputFormat.format(date);--%>
-                <%--                                %>--%>
-                <%--                                <p style="font-family:  'Outfit', 'sans-serif'"--%>
-                <%--                                   class="text-[0.75rem] text-gray-500"--%>
-                <%--                                >Created--%>
-                <%--                                    At:--%>
-                <%--                                    <span class="text-black">--%>
-                <%--                                                      <%=--%>
-                <%--                                                      formattedDate--%>
-                <%--                                                      %>--%>
-                <%--                                                </span>--%>
-                <%--                                </p>--%>
-                <%--                                <button style="font-family:  'Outfit', 'sans-serif'"--%>
-                <%--                                        class=" cursor-pointer px-6 py-2 border-2 border-yellow-400 text-yellow-500 font-medium rounded-lg hover:bg-yellow-400 hover:text-white transition-all">--%>
-                <%--                                    Inscrivez--%>
-                <%--                                </button>--%>
-
-                <%--                            </div>--%>
-                <%--                        </div>--%>
-
-
-                <%--                    </div>--%>
-                <%--                </div>--%>
-                <!-- Trip List Container -->
-                <%--                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">--%>
-                <!-- Single Trip Card -->
-                <%--                </div>--%>
 
                 <!-- Single Trip Card -->
                 <div
@@ -332,22 +251,22 @@
                     <!-- Header with Company and Trip ID -->
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center gap-3">
-                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
-                    MedMks
-                </span>
+                            <%--                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">--%>
+                            <%--                    MedMks--%>
+                            <%--                </span>--%>
                             <span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded-full">
-                    #RT-2
-                </span>
+                        <%= "#NT- " + nav.getId() %>
+                    </span>
                         </div>
                         <div class="flex items-center gap-2">
-                <span class="bg-green-50 text-green-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24"
-                         stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"/>
-                    </svg>
-                    Active
-                </span>
+                            <span class="bg-green-50 text-green-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"/>
+                                </svg>
+                                Active
+                            </span>
                         </div>
                     </div>
 
@@ -361,18 +280,20 @@
                                 </div>
                                 <div>
                                     <h3 style="font-family:  'Outfit', 'sans-serif'"
-                                        class="font-semibold text-[1rem]">Meknes</h3>
-                                    <p style="font-family:  'Outfit', 'sans-serif'"
-                                       class="font-light text-[.85rem]">10:00</p>
+                                        class="font-semibold text-[1rem]"><%= nav.getVilleDepart() %>
+                                    </h3>
+                                    <p style="font-family:  'Inter', 'sans-serif'"
+                                       class="font-light text-[.85rem]"><%= nav.getHeureDepart() %>
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Journey Info -->
                         <div class="flex-1 flex flex-col items-center">
-<span class="text-xs text-gray-500 bg-gray-50 px-3 py-1 rounded-full mb-1">
-1h 30m
-</span>
+                            <span class="text-xs text-gray-500 bg-gray-50 px-3 py-1 rounded-full mb-1">
+                            1h 30m
+                            </span>
                             <div class="w-full h-0.5 bg-gray-100 relative">
                                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
@@ -389,9 +310,11 @@
                             <div class="flex items-start gap-3 justify-end">
                                 <div>
                                     <h3 style="font-family:  'Outfit', 'sans-serif'"
-                                        class="font-semibold text-[1rem]">Kenitra</h3>
-                                    <p style="font-family:  'Outfit', 'sans-serif'"
-                                       class="font-light text-[.85rem]">11:30</p>
+                                        class="font-semibold text-[1rem]"><%= nav.getVilleArrivee() %>
+                                    </h3>
+                                    <p style="font-family:  'Inter', 'sans-serif'"
+                                       class="font-light text-[.85rem]"><%= nav.getHeureArrivee() %>
+                                    </p>
                                 </div>
                                 <div class="mt-2">
                                     <div class="w-3 h-3 rounded-full bg-red-500 ring-2 ring-red-100"></div>
@@ -401,7 +324,7 @@
                     </div>
 
                     <!-- Footer Information -->
-                    <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                    <div class="flex items-center justify-between pt-3 border-t border-gray-200">
                         <!-- Left Side Info -->
                         <div class="flex items-center gap-4">
                             <!-- Seats -->
@@ -411,22 +334,38 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
                                 </svg>
-                                <span class="text-sm text-gray-600">23/42 seats</span>
+                                <span class="text-sm text-gray-600"><%= nav.getNombreSieges() + " seats" %></span>
                             </div>
 
                             <!-- Date -->
                             <div class="flex items-center gap-2">
+                                <%
+                                    // Assuming nav.getCreatedAt() returns "2025-03-20 17:56:45"
+                                    String createdAt = nav.getCreatedAt();
+
+                                    // Define input and output date formats
+                                    SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                    SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd, yyyy");
+
+                                    // Parse input string to Date object
+                                    Date date = inputFormat.parse(createdAt);
+
+                                    // Format date to desired output
+                                    String formattedDate = outputFormat.format(date);
+                                %>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
                                      viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
-                                <span class="text-sm text-gray-600">Until Mar 31, 2025</span>
+                                <span style="font-family:  'Inter', 'sans-serif'"
+                                      class="text-sm text-gray-600"><%= formattedDate %></span>
                             </div>
                         </div>
 
                         <!-- Action Button -->
-                        <button class="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1">
+                        <button
+                                class="text-blue-600 cursor-pointer hover:text-blue-700 text-sm font-medium flex items-center gap-1">
                             View Details
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                  stroke="currentColor">
