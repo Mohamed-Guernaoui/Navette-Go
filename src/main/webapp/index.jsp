@@ -37,15 +37,20 @@
                 console.log(navette)
                 document.getElementById("selected_navette").innerHTML = `
                 <div class="w-full mx-auto bg-white shadow-xs rounded-lg p-6">
-                    <div class="flex justify-between text-gray-500 text-sm">
-                        <span style="font-family:  'Outfit', 'sans-serif'" class="text-[13px] font-normal   text-gray-500
-                                                        ">Order #123456</span>
-                        <span style="font-family:  'Outfit', 'sans-serif'" class="text-[13px] font-normal   text-gray-500
-                                                        "style="font-family:  'Outfit', 'sans-serif'" class="text-[13px] font-normal absolute -top-3  text-gray-500
-                                                        ">March 20, 2025</span>
+                    <div class="flex justify-between items-center text-gray-500 text-sm">
+                       <span style="font-family:  'Outfit', 'sans-serif'" class="text-[13px] font-normal   text-gray-500">
+                            Order #123456
+                        </span>
+                       <div class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            MedMks
+                        </div>
                     </div>
-                    <div class="w-full flex justify-center gap-5 p-4 ">
-                                <div class="flex flex-col items-center justify-center ">
+                    <div class="w-full flex justify-center p-4 ">
+                        <div class="flex items-center justify-center gap-5">
+                                 <div class="flex flex-col items-center justify-center ">
                                     <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">
                                         Depart</p>
                                     <h2 style="font-family:  'Outfit', 'sans-serif'" class="font-semibold text-[2rem]">10:00
@@ -53,184 +58,82 @@
                                     <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">Meknes
                                     </p>
                                 </div>
+                                <div class="z-10 w-4 h-4 rounded-full bg-green-500 ring-4 ring-green-100 flex items-center justify-center">
+                                      <div class="w-2 h-2 rounded-full bg-white"></div>
+                                </div>
+                        </div>
 
-                                <div class="relative flex justify-center items-center py-8">
-                                    <!-- Position 1 (Completed) -->
-                                    <div class="relative">
-                                        <div class="z-10 w-3 h-3 rounded-full bg-green-500 ring-4 ring-green-200 shadow-lg">
-<!--                                            <div class="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>-->
-                                        </div>
+                        <div class="relative flex justify-center items-center py-8">
+                           <!-- Position 1 (Completed) -->
+                           <div class="relative mx-4">
+                                <div class="h-0.5 w-60 bg-gray-200">
+                                    <!-- Progress Bar -->
+                                    <div class="h-full w-1/2 bg-green-500"></div>
 
-                                    </div>
-
-                                    <!-- Connecting Line -->
-                                    <div class="relative flex items-center mx-2">
-                                        <div class="h-0.5 w-32 bg-gradient-to-r from-green-500 to-gray-300 relative">
-                                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] text-gray-500">
-                                                #NAV-2
+                                    <!-- Journey Info -->
+                                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-3 rounded-full border border-gray-100 shadow-sm">
+                                        <div class="flex items-center gap-3">
+                                            <!-- Seats Info -->
+                                            <div class="flex items-center gap-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                                <span class="text-xs text-gray-600">23/42</span>
+                                            </div>
+                                            <!-- Duration -->
+                                            <div class="flex items-center gap-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <span class="text-xs text-gray-600">1h 30m</span>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- Position 2 (In Progress) -->
-                                    <div class="relative">
-                                        <div class="z-10 w-3 h-3 rounded-full bg-white ring-4 ring-green-500 shadow-lg ">
-                                        </div>
-                                    </div>
                                 </div>
+                                </div>
+                              </div>
 
-                                <div class="flex flex-col items-center justify-center">
+                        <div class="flex items-center justify-center gap-5">
+                                   <div class="z-10 w-4 h-4 rounded-full bg-red-500 ring-4 ring-red-100 flex items-center justify-center">
+                                       <div class="w-2 h-2 rounded-full bg-white"></div>
+                                  </div>
+                                 <div class="flex flex-col items-center justify-center ">
                                     <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">
                                         Arrivee</p>
-                                    <h2 style="font-family:  'Outfit', 'sans-serif'" class="font-semibold text-[2rem]">11:30
+                                    <h2 style="font-family:  'Outfit', 'sans-serif'" class="font-semibold text-[2rem]">12:00
                                     </h2>
                                     <p style="font-family:  'Outfit', 'sans-serif'" class="font-normal text-[1rem]">Kenitra
                                     </p>
                                 </div>
-                    </div>
 
-                    <div class="relative flex flex-col items-center bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-    <!-- Company Badge -->
-    <div class="absolute top-4 right-4">
-        <div class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            MedMks
-        </div>
-    </div>
-
-    <!-- Route Display -->
-    <div class="relative flex justify-center items-center w-full mt-6">
-        <!-- Departure City -->
-        <div class="relative group">
-            <div class="z-10 w-4 h-4 rounded-full bg-green-500 ring-4 ring-green-100 flex items-center justify-center">
-                <div class="w-2 h-2 rounded-full bg-white"></div>
-            </div>
-            <div class="absolute -top-12 left-1/2 -translate-x-1/2 min-w-max">
-                <p class="text-sm font-medium text-gray-700">Meknes</p>
-                <p class="text-xs text-gray-500 text-center">10:00</p>
-            </div>
-        </div>
-
-        <!-- Route Path -->
-        <div class="relative mx-4">
-            <div class="h-0.5 w-60 bg-gray-200">
-                <!-- Progress Bar -->
-                <div class="h-full w-1/2 bg-green-500"></div>
-
-                <!-- Journey Info -->
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-3 rounded-full border border-gray-100 shadow-sm">
-                    <div class="flex items-center gap-3">
-                        <!-- Seats Info -->
-                        <div class="flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                            <span class="text-xs text-gray-600">23/42</span>
-                        </div>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span class="text-xs text-gray-600">1h 30m</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Arrival City -->
-        <div class="relative group">
-            <div class="z-10 w-4 h-4 rounded-full bg-red-500 ring-4 ring-red-100 flex items-center justify-center">
-                <div class="w-2 h-2 rounded-full bg-white"></div>
-            </div>
-            <div class="absolute -top-12 left-1/2 -translate-x-1/2 min-w-max">
-                <p class="text-sm font-medium text-gray-700">Kenitra</p>
-                <p class="text-xs text-gray-500 text-center">11:30</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Additional Info -->
-    <div class="flex items-center gap-6 mt-8 text-sm">
-        <!-- Subscription Period -->
-        <div class="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <div>
-                <p class="text-xs text-gray-500">Subscription Period</p>
-                <p class="text-xs font-medium text-gray-700">31 Mar 2025 - 31 Mar 2025</p>
-            </div>
-        </div>
-
-        <!-- Route ID -->
-        <div class="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
-            <div>
-                <p class="text-xs text-gray-500">Route ID</p>
-                <p class="text-xs font-medium text-gray-700">#RT-2</p>
-            </div>
-        </div>
-    </div>
-</div>
-                    <div class="flex justify-center my-4 space-x-4">
-                        <button class="bg-yellow-400 p-2 rounded-full shadow-md">
-                            ✅
-                        </button>
-                        <button class="bg-yellow-400 p-2 rounded-full shadow-md">
-                            📅
-                        </button>
-                        <button class="bg-gray-300 p-2 rounded-full shadow-md">
-                            ⚙️
-                        </button>
-                        <button class="bg-gray-300 p-2 rounded-full shadow-md">
-                            🅿️
-                        </button>
-                    </div>
-
-                    <div class="flex justify-between text-gray-600 text-sm">
-                        <button class="border border-gray-300 py-1 px-4 rounded-lg">Support</button>
-                        <button class="border border-gray-300 py-1 px-4 rounded-lg">View on Map ➡️</button>
-                    </div>
-
-                    <div class="my-4 border-t border-gray-300 pt-4">
-                        <h3 class="text-gray-700 font-semibold">Address</h3>
-                        <p class="text-gray-500">Geologicheskaya Street, 50</p>
-                    </div>
-
-                    <div class="my-4 border-t border-gray-300 pt-4">
-                        <h3 class="text-gray-700 font-semibold">Order Summary</h3>
-                        <div class="flex justify-between items-center text-gray-500 text-sm mt-2">
-                            <img src="https://via.placeholder.com/40" alt="product" class="w-10 h-10 rounded-lg">
-                            <p>Chips "San COCT" Original</p>
-                            <span>2.3₽</span>
                         </div>
                     </div>
 
-                    <div class="my-4 border-t border-gray-300 pt-4">
-                        <h3 class="text-gray-700 font-semibold">Summary</h3>
-                        <div class="flex justify-between text-gray-500 text-sm">
-                            <p>Item Cost</p>
-                            <span>2.3₽</span>
-                        </div>
-                        <div class="flex justify-between text-gray-500 text-sm">
-                            <p>Delivery Fee</p>
-                            <span>9₽</span>
-                        </div>
-                        <div class="flex justify-between text-gray-500 text-sm">
-                            <p>Service Charge</p>
-                            <span>0.8₽</span>
-                        </div>
-                        <div class="flex justify-between font-semibold text-lg mt-2">
-                            <p>Total</p>
-                            <span>12.3₽</span>
-                        </div>
-                    </div>
+                    <div class="flex items-center justify-center gap-6 text-sm">
+                            <!-- Subscription Period -->
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <div>
+                                    <p class="text-xs text-gray-500">Subscription Period</p>
+                                    <p class="text-xs font-medium text-gray-700">31 Mar 2025 - 31 Mar 2025</p>
+                                </div>
+                            </div>
+
+                            <!-- Route ID -->
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                                <div>
+                                    <p class="text-xs text-gray-500">Route ID</p>
+                                    <p class="text-xs font-medium text-gray-700">#RT-2</p>
+                                </div>
+                            </div>
+                     </div>
+
+
                 </div>`
 
             }
@@ -257,7 +160,7 @@
                     <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                         <div class="border-t-transparent border-solid animate-spin  rounded-full border-yellow-400 border-3 h-14 w-14"></div>
                     </div>`
-            setTimeout(() => {
+            // setTimeout(() => {
                 fetch(`/nav?id=` + navetteId)
                     .then(response => {
                         return response.json();
@@ -273,7 +176,7 @@
                 })
 
                     .catch(error => console.error("Error fetching navette:", error));
-            }, 1000)
+            // }, 1000)
 
         }
 
