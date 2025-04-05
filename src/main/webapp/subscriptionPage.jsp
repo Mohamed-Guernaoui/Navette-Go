@@ -1,5 +1,12 @@
 <%@ page import="org.example.app.tonnavette.model.Navette" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page
+        import="org.example.app.tonnavette.model.Utilisateur" %><%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%
+    Utilisateur userAuth = (Utilisateur) session.getAttribute("userAuth");
+    Navette selectedNavette = (Navette) request.getAttribute("selectedNavette");
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,17 +21,14 @@
 <div class="container mx-auto px-4 py-8 max-w-6xl">
     <h1 class="text-2xl font-semibold">Complete Your Trip Subscription</h1>
 
-    <div class="flex flex-col md:flex-row gap-8">
-        <!-- Payment section -->
+    <div class="flex  flex-col md:flex-row gap-8">
+        <% if (userAuth != null) { %>
         <div class="w-full md:w-2/3 space-y-6">
-
             <!-- Credit card form -->
             <form action="${pageContext.request.contextPath}/processSubscription" method="post" class="space-y-4">
                 <!-- Hidden fields to pass trip data -->
-                <%
-                    Navette selectedNavette = (Navette) request.getAttribute("selectedNavette");
-                %>
-                <input type="hidden" name="tripId" value="<%= selectedNavette.getId() %>">
+
+                <input type="hidden" name="navetteId" value="<%= selectedNavette.getId() %>">
                 <input type="hidden" name="tripPrice" value="<%= request.getParameter("tripPrice") %>">
                 <input type="hidden" name="passengers" value="<%= request.getParameter("passengers") %>">
 
@@ -166,7 +170,10 @@
             </button>
 
         </div>
+        <% } else { %>
+        <jsp:include page="views/components/Sign-Up.jsp"/>
 
+        <% } %>
         <!-- Order summary section -->
         <div class="w-full md:w-1/3">
             <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 sticky top-4">
@@ -276,6 +283,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
