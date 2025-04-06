@@ -23,8 +23,8 @@ public class ListeUtilisateursServlet extends HttpServlet {
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO(connection);
 
         // 2️⃣ Récupération des utilisateurs
-        List<Utilisateur> utilisateurs = utilisateurDAO.getAllUsers();
-
+//        List<Utilisateur> utilisateurs = utilisateurDAO.getAllUsers();
+        List<Utilisateur> utilisateurs = null;
         // 3️⃣ Envoi des utilisateurs à la JSP
         request.setAttribute("utilisateurs", utilisateurs);
         request.getRequestDispatcher("/views/utilisateurs.jsp").forward(request, response);
