@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.example.app.tonnavette.model.Navette" %><%--
   Created by IntelliJ IDEA.
   User: Ordinateur
   Date: 4/5/2025
@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Navette selectedNavette = (Navette) request.getAttribute("selectedNavette");
+%>
 
 <div class="bg-white p-6 rounded-xl shadow-sm  w-full md:w-2/3 space-y-6">
     <!-- Tabs -->
@@ -36,8 +39,9 @@
                     Welcome Back
                 </h1>
 
-
                 <div class="relative w-[100%] mb-4 ">
+                    <input type="hidden" name="navetteId" value="<%= selectedNavette.getId() %>">
+
                     <input
                             class="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                             type="email"
@@ -105,6 +109,8 @@
                     Join Us Today
                 </h1>
                 <div class="relative w-[100%] mb-4 ">
+                    <input type="hidden" name="navetteId" value="<%= selectedNavette.getId() %>">
+
                     <input
                             class="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                             type="text"
