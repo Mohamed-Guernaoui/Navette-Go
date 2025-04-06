@@ -357,7 +357,7 @@
                 Navettes Disponibles
             </h1>
         </div>
-        <div class="w-full flex flex-row gap-10 mt-5">
+        <div class="w-full flex flex-row justify-between  gap-5 mt-5">
             <%--            <div class="flex flex-col gap-5">--%>
             <div class="w-[43%] space-y-4">
 
