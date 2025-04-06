@@ -33,27 +33,27 @@ public class UtilisateurDAO {
         }
     }
 
-    public List<Utilisateur> getAllUsers() {
-        List<Utilisateur> utilisateurs = new ArrayList<>();
-
-
-        String query = "SELECT * FROM Utilisateur";
-        try (PreparedStatement stmt = connection.prepareStatement(query);
-             ResultSet res = stmt.executeQuery()) {
-            while (res.next()) {
-                Utilisateur user = new Utilisateur(
-                        res.getInt("id"),
-                        res.getString("nom"),
-                        res.getString("email"),
-                        res.getString("role")
-                );
-                utilisateurs.add(user);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return utilisateurs;
-    }
+//    public List<Utilisateur> getAllUsers() {
+//        List<Utilisateur> utilisateurs = new ArrayList<>();
+//
+//
+//        String query = "SELECT * FROM Utilisateur";
+//        try (PreparedStatement stmt = connection.prepareStatement(query);
+//             ResultSet res = stmt.executeQuery()) {
+//            while (res.next()) {
+//                Utilisateur user = new Utilisateur(
+//                        res.getInt("id"),
+//                        res.getString("nom"),
+//                        res.getString("email"),
+//                        res.getString("role")
+//                );
+//                utilisateurs.add(user);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return utilisateurs;
+//    }
 
     public Utilisateur authentifier(String email, String motDePasse) {
         String sql = "SELECT * FROM Utilisateur WHERE email = ? AND motDePasse = ?";
@@ -62,7 +62,7 @@ public class UtilisateurDAO {
             stmt.setString(2, motDePasse);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Utilisateur utilisateur = new Utilisateur(rs.getInt("id"), rs.getString("nom"), email, rs.getString("role"));
+                Utilisateur utilisateur = new Utilisateur(rs.getInt("id"), rs.getString("nom"), email, rs.getString("role"), rs.getString("telephone"), rs.getString("prenom"));
                 // Log response
                 logger.info("This is an INFO log message");
                 System.out.println("User authenticated: " + utilisateur);

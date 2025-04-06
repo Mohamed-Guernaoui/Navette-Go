@@ -10,7 +10,8 @@
 <body>
 
 <div class="navbar">
-    <a href="${pageContext.request.contextPath}/dashboard">Accueil</a>
+    <a href="${pageContext.request.contextPath}/dashboard">Andex
+        ccueil</a>
     <a href="${pageContext.request.contextPath}/utilisateurs">Utilisateurs</a>
     <a href="${pageContext.request.contextPath}/views/inscription.jsp">Inscription</a>
 </div>
