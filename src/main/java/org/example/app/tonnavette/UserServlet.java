@@ -17,6 +17,8 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Connection con = DatabaseConnection.getConnection();
+        String navetteId = request.getParameter("navetteId");
+
         UtilisateurDAO userDAO = new UtilisateurDAO(con);
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -24,7 +26,12 @@ public class UserServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("userAuth", user);
-            response.sendRedirect("index.jsp"); // Redirection après connexion
+            if (navetteId != null) {
+                response.sendRedirect("/subscription?navetteId=" + navetteId);
+            } else {
+                response.sendRedirect("/home"); // Redirection après connexion
+            }
+
         } else {
             response.sendRedirect("views/login.jsp?error=Identifiants incorrects");
         }
