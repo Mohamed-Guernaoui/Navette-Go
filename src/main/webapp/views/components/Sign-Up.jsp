@@ -40,8 +40,6 @@
                 <div class="relative w-[100%] mb-4 ">
                     <input
                             class="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-
-                    <%--                class="w-[100%] outline-none focus:border-2 rounded-md p-4 bg-white pl-5 border border-[#f3e322] focus:bg-transparent placeholder:text-black "--%>
                             type="email"
                             id="email"
                             placeholder="your email"
@@ -193,8 +191,8 @@
 
     function showForm(type) {
         if (type === 'signin') {
-            signInTab.classList.add('border-yellow-400', 'text-yellow-500');
-            signUpTab.classList.remove('border-yellow-400', 'text-yellow-500');
+            signInTab.classList.add('border-indigo-400', 'text-indigo-500');
+            signUpTab.classList.remove('border-indigo-400', 'text-indigo-500');
 
             signinForm.classList.remove('hidden');
             signupForm.classList.add('hidden');
@@ -207,8 +205,8 @@
             }, 10);
 
         } else {
-            signUpTab.classList.add('border-yellow-400', 'text-yellow-500');
-            signInTab.classList.remove('border-yellow-400', 'text-yellow-500');
+            signUpTab.classList.add('border-indigo-400', 'text-indigo-500');
+            signInTab.classList.remove('border-indigo-400', 'text-indigo-500');
 
             signupForm.classList.remove('hidden');
             signinForm.classList.add('hidden');
