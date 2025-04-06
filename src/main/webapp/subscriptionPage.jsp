@@ -42,6 +42,7 @@
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
                         <input type="email" id="email" name="email"
+                               value="<%= userAuth.getEmail() %>"
                                class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                                required>
                     </div>
@@ -51,12 +52,15 @@
                             <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First
                                 Name</label>
                             <input type="text" id="firstName" name="firstName"
+                                   value="<%= userAuth.getPrenom() %>"
                                    class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                                    required>
                         </div>
                         <div>
                             <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
                             <input type="text" id="lastName" name="lastName"
+                                   value="<%= userAuth.getNom() %>"
+
                                    class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                                    required>
                         </div>
@@ -65,6 +69,8 @@
                     <div>
                         <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                         <input type="tel" id="phone" name="phone"
+                               value="<%= userAuth.getTelephone() %>"
+
                                class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                                required>
                     </div>
