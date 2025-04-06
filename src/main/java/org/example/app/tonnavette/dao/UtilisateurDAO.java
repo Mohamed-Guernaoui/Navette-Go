@@ -62,7 +62,7 @@ public class UtilisateurDAO {
             stmt.setString(2, motDePasse);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Utilisateur utilisateur = new Utilisateur(rs.getString("nom"), email, motDePasse, rs.getString("role"));
+                Utilisateur utilisateur = new Utilisateur(rs.getInt("id"), rs.getString("nom"), email, rs.getString("role"));
                 // Log response
                 logger.info("This is an INFO log message");
                 System.out.println("User authenticated: " + utilisateur);
