@@ -19,25 +19,42 @@ import java.time.LocalDateTime;
 public class SubscriptionSaveServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        int navetteId = Integer.parseInt(request.getParameter("navetteId"));
+        try {
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            int navetteId = Integer.parseInt(request.getParameter("navetteId"));
+            String pickupPoint = request.getParameter("pickupPoint");
 
-        try (Connection connection = DatabaseConnection.getConnection()) {
+            System.out.println("User ID: " + userId);
+            System.out.println("Navette ID: " + navetteId);
+            System.out.println("Pickup Point: " + pickupPoint);
+
+//            try () {
+            Connection connection = DatabaseConnection.getConnection();
             SubscriptionDAO dao = new SubscriptionDAO(connection);
             Subscription subscription = new Subscription();
             subscription.setUserId(userId);
             subscription.setNavetteId(navetteId);
             subscription.setSubscribedAt(LocalDateTime.now());
+            subscription.setPickupPoint(pickupPoint);
 
             dao.addSubscription(subscription);
 
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.getWriter().write("Subscription saved successfully.");
+            // Set toast message to be used in JSP
+            request.setAttribute("toastMessage", "🚀 Subscription successful!");
+            request.setAttribute("toastType", "success");
 
+            request.getRequestDispatcher("/thank-you.jsp").forward(request, response);
+//            }
+//        } catch (NumberFormatException e) {
+//            e.printStackTrace();
+//            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//            response.getWriter().write("Invalid input data.");
         } catch (Exception e) {
             e.printStackTrace();
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("Failed to save subscription.");
+            request.setAttribute("toastMessage", "❌ Failed to subscribe. Please try again later.");
+            request.setAttribute("toastType", "error");
+            request.getRequestDispatcher("/subscription.jsp").forward(request, response);
         }
     }
+
 }
