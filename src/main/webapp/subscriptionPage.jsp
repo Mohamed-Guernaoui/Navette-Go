@@ -22,16 +22,19 @@
     <h1 class="text-2xl font-semibold">Complete Your Trip Subscription</h1>
 
     <div class="flex  flex-col md:flex-row gap-8">
-        <% if (userAuth != null) { %>
+        <% if (userAuth != null) {
+
+        %>
         <div class="w-full md:w-2/3 space-y-6">
             <!-- Credit card form -->
             <form action="${pageContext.request.contextPath}/processSubscription" method="post" class="space-y-4">
                 <!-- Hidden fields to pass trip data -->
 
                 <input type="hidden" name="navetteId" value="<%= selectedNavette.getId() %>">
-                <input type="hidden" name="tripPrice" value="<%= request.getParameter("tripPrice") %>">
-                <input type="hidden" name="passengers" value="<%= request.getParameter("passengers") %>">
+                <input type="hidden" name="userId" value="<%= userAuth.getId() %>">
 
+                <%--                <input type="hidden" name="tripPrice" value="<%= request.getParameter("tripPrice") %>">--%>
+                <%--                <input type="hidden" name="passengers" value="<%= request.getParameter("passengers") %>">--%>
                 <!-- User Information -->
                 <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 space-y-4">
                     <h2 class="font-medium text-lg">Personal Information</h2>
@@ -287,7 +290,8 @@
     </div>
 </div>
 
-<%--<script>--%>
+<script>
+    console.log("Username from server: <%=  userAuth.getNom() %>");
 <%--    // Handle discount code application--%>
 <%--    document.getElementById('applyDiscountBtn').addEventListener('click', function() {--%>
 <%--        const discountInput = document.querySelector('input[name="discountCode"]');--%>
@@ -311,6 +315,6 @@
 <%--            document.getElementById('totalAmount').textContent = '$' + total.toFixed(2);--%>
 <%--        }--%>
 <%--    });--%>
-<%--</script>--%>
+</script>
 </body>
 </html>
