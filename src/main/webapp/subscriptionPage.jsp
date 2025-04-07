@@ -18,9 +18,18 @@
           rel="stylesheet">
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
-<div class="container mx-auto px-4 py-8 max-w-6xl">
-    <h1 class="text-2xl font-semibold">Complete Your Trip Subscription</h1>
 
+<jsp:include page="views/components/mini-navbar.jsp"/>
+
+<div class="container mx-auto px-4 py-8 max-w-6xl">
+    <% if (userAuth != null) {
+
+    %>
+    <h1 style="font-family: 'Outfit', sans-serif;" class="text-2xl font-semibold">Complete Your Trip Subscription</h1>
+    <% } else { %>
+    <h1 style="font-family: 'Outfit', sans-serif;" class="text-2xl font-semibold">I would like to </h1>
+
+    <% } %>
     <div class="flex  flex-col md:flex-row gap-8">
         <% if (userAuth != null) {
 
@@ -154,7 +163,7 @@
                 </div>
 
                 <button type="submit"
-                        class="w-full bg-[#f3e322] text-gray-800 font-medium py-3 rounded-md hover:bg-[#e6d41f] transition-colors">
+                        class="w-full bg-indigo-500 text-white font-medium py-3 rounded-md hover:bg-indigo-400 transition-colors">
                     Complete Subscription
                 </button>
 
