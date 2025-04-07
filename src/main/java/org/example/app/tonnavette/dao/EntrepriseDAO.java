@@ -15,7 +15,7 @@ public class EntrepriseDAO {
     }
 
     public Entreprise authentifier(String email, String motDePasse) {
-        String sql = "SELECT * FROM Utilisateur WHERE email = ? AND motDePasse = ?";
+        String sql = "SELECT * FROM entreprise WHERE Email = ? AND Mot_de_passe = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, email);
             stmt.setString(2, motDePasse);
@@ -32,5 +32,22 @@ public class EntrepriseDAO {
         }
         return null;
     }
+
+    public boolean createEntreprise(Entreprise entreprise) {
+        String sql = "INSERT INTO Entreprise (Nom, Email, Mot_de_passe) VALUES (?, ?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, entreprise.getNom());
+            ps.setString(2, entreprise.getEmail());
+            ps.setString(3, entreprise.getHashedPassword());
+
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            System.out.println("Failed to create entreprise");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }
