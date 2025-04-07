@@ -65,7 +65,16 @@ public class NavetteDAO {
                 "    n.nombreAbonnes, " +
                 "    n.createdAt, " +
                 "    e.id AS societe_id, " +
-                "    e.nom AS societe_nom " +
+                "    e.nom AS societe_nom, " +
+                " n.status  ," +
+                " n.car_plate  ," +
+                " n.car_model  ," +
+                " n.seats_number ," +
+                " n.price ," +
+                " n.kilometers , " +
+                " n.car_brand  " +
+
+
                 "FROM Navette n " +
                 "JOIN Entreprise e ON n.societeId = e.id " +
                 "WHERE n.id = ?";
@@ -87,6 +96,14 @@ public class NavetteDAO {
                     navette.setNombreSieges(rs.getInt("nombreSieges"));
                     navette.setNombreAbonnes(rs.getInt("nombreAbonnes"));
                     navette.setCreatedAt(rs.getString("createdAt"));
+                    navette.setPrice(rs.getDouble("price"));
+                    navette.setKilometers(rs.getInt("kilometers"));
+                    navette.setSeatsNumber(rs.getInt("seats_number"));
+                    navette.setCarModel(rs.getString("car_model"));
+                    navette.setCarPlate(rs.getString("car_plate"));
+                    navette.setCarPlate(rs.getString("car_brand"));
+
+                    navette.setStatus(Navette.NavetteStatus.valueOf(rs.getString("status")));
                     // Setting the associated Entreprise
                     Entreprise societe = new Entreprise();
                     societe.setId(rs.getInt("societe_id"));
