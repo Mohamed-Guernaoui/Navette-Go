@@ -1,6 +1,7 @@
 package org.example.app.tonnavette.model;
 
 public class Navette {
+    private double price;
     private int id;
     private int societeId;
     private String villeDepart;
@@ -13,6 +14,16 @@ public class Navette {
     private int nombreAbonnes;
     private String createdAt;
     private Entreprise societe;
+    private int kilometers;
+    private int seatsNumber;
+    private String carModel;
+    private String carPlate;
+    private NavetteStatus status;
+
+    // Getters and setters
+    public double getPrice() {
+        return price;
+    }
 
     public String getCreatedAt(){
         return createdAt;
@@ -90,6 +101,55 @@ public class Navette {
 
     public void setSociete(Entreprise societe) {
         this.societe = societe;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getKilometers() {
+        return kilometers;
+    }
+
+    public void setKilometers(int kilometers) {
+        this.kilometers = kilometers;
+    }
+
+    public int getSeatsNumber() {
+        return seatsNumber;
+    }
+
+    public void setSeatsNumber(int seatsNumber) {
+        this.seatsNumber = seatsNumber;
+    }
+
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
+    public String getCarPlate() {
+        return carPlate;
+    }
+
+    public void setCarPlate(String carPlate) {
+        this.carPlate = carPlate;
+    }
+
+    public NavetteStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(NavetteStatus status) {
+        this.status = status;
+    }
+
+    public enum NavetteStatus {
+        OPEN,
+        CLOSED
     }
 
 }
