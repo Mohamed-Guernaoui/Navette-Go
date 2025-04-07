@@ -8,6 +8,7 @@ public class Entreprise {
     private String hashedPassword;
 
 
+
     public int getId() {
         return id;
     }
@@ -34,6 +35,10 @@ public class Entreprise {
 
     public String getHashedPassword() {
         return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
     }
 
 
