@@ -14,12 +14,15 @@
     <!-- Tabs -->
     <div class="flex border-b mb-4">
         <button id="signInTab"
-                class="flex-1 py-2 text-center text-gray-600 font-medium border-b-2 border-transparent hover:text-indigo-500 transition"
+                style="font-family:  'Inter', 'sans-serif'"
+                class="flex-1 font-medium py-2 text-center text-gray-600  border-b-2 border-transparent hover:text-indigo-500 transition"
                 onclick="showForm('signin')">
-            Sign In
+            Register
         </button>
         <button id="signUpTab"
-                class="flex-1 py-2 text-center text-gray-600 font-medium border-b-2 border-transparent hover:text-indigo-500 transition"
+                style="font-family:  'Inter', 'sans-serif'"
+
+                class="flex-1 py-2 font-medium text-center text-gray-600  border-b-2 border-transparent hover:text-indigo-500 transition"
                 onclick="showForm('signup')">
             Sign Up
         </button>
