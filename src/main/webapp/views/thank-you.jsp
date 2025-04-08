@@ -25,7 +25,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 <body>
-<jsp:include page="views/components/NavBar.jsp"/>
+<jsp:include page="components/NavBar.jsp"/>
 
 <% if (toastMessage != null) { %>
 <script>
