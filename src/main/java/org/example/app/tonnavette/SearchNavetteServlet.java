@@ -26,6 +26,6 @@ public class SearchNavetteServlet extends HttpServlet {
         List<Navette> navettes = navetteDAO.searchNavettes(query);
 
         request.setAttribute("navettes", navettes);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("list-navettes.jsp").forward(request, response);
     }
 }
