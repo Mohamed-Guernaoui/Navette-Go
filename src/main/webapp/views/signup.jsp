@@ -16,7 +16,7 @@
 <nav class="relative flex flex-row justify-between items-center w-full p-7 ">
     <div class="flex flex-row gap-20">
         <div>
-            <a href="../index.jsp">
+            <a href="../list-navettes.jsp">
                 <h1 class="text-[30px] font-bold">NavetteToGo</h1>
             </a>
         </div>
@@ -24,7 +24,6 @@
 </nav>
 
 <section class=" h-cover flex w-full items-center justify-center flex-col">
-
     <form
             class=" w-[80%] max-w-[400px] flex flex-col gap-6 justify-center items-center"
     >
