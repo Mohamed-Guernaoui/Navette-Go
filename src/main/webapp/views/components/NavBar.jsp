@@ -8,7 +8,7 @@
 <nav class="relative flex flex-row justify-between items-center w-full px-8 py-6 bg-white shadow-sm  ">
     <div class="flex flex-row items-center gap-16">
         <div>
-            <a href="/index.jsp" class="hover:opacity-80 transition-opacity">
+            <a href="/views/index.jsp" class="hover:opacity-80 transition-opacity">
                 <h1 style="font-family: 'Outfit', sans-serif"
                 <%--                    class="text-3xl font-bold bg-gradient-to-r from-[#f3e322] to-[#f3a322] bg-clip-text text-transparent">--%>
                     class="text-3xl font-bold text-[#f4b322]">
