@@ -19,7 +19,7 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
 
-<jsp:include page="views/components/mini-navbar.jsp"/>
+<jsp:include page="components/mini-navbar.jsp"/>
 
 <div class="container mx-auto px-4 py-8 max-w-6xl">
     <% if (userAuth != null) {
@@ -27,7 +27,7 @@
     %>
     <h1 style="font-family: 'Outfit', sans-serif;" class="text-2xl font-semibold">Complete Your Trip Subscription</h1>
     <% } else { %>
-    <h1 style="font-family: 'Outfit', sans-serif;" class="text-2xl font-semibold">I would like to </h1>
+    <h1 style="font-family: 'Outfit', sans-serif;" class="text-2xl font-semibold mb-10">I would like to </h1>
 
     <% } %>
     <div class="flex  flex-col md:flex-row gap-8">
@@ -189,7 +189,7 @@
 
         </div>
         <% } else { %>
-        <jsp:include page="views/components/Sign-Up.jsp"/>
+        <jsp:include page="components/Sign-Up.jsp"/>
 
         <% } %>
         <!-- Order summary section -->
