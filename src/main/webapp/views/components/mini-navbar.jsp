@@ -8,7 +8,7 @@
 <nav class="relative flex flex-row justify-between items-center w-full px-8 py-6 bg-white shadow-sm">
     <div class="flex flex-row items-center gap-16">
         <div>
-            <a href="./home" class="hover:opacity-80 transition-opacity">
+            <a href="./views" class="hover:opacity-80 transition-opacity">
                 <h1 style="font-family: 'Outfit', sans-serif"
                     class="text-3xl font-bold bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                     NaveToGo
