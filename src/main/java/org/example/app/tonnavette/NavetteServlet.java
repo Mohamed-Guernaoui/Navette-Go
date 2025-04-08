@@ -12,7 +12,7 @@ import org.example.app.tonnavette.model.Navette;
 
 import java.sql.Connection;
 
-@WebServlet("/home")
+@WebServlet("/find-navettes")
 public class NavetteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -28,6 +28,6 @@ public class NavetteServlet extends HttpServlet {
         }
 
         request.setAttribute("navettes", navettes);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("list-navettes.jsp").forward(request, response);
     }
 }
