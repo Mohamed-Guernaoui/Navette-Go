@@ -28,6 +28,6 @@ public class NavetteServlet extends HttpServlet {
         }
 
         request.setAttribute("navettes", navettes);
-        request.getRequestDispatcher("list-navettes.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/list-navettes.jsp").forward(request, response);
     }
 }
