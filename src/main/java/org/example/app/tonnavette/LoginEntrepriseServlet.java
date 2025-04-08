@@ -4,18 +4,10 @@ package org.example.app.tonnavette;
 import jakarta.servlet.http.HttpSession;
 import org.example.app.tonnavette.dao.EntrepriseDAO;
 import org.example.app.tonnavette.model.Entreprise;
-
 import java.io.*;
-import java.sql.SQLException;
-import java.util.List;
-
-import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import org.example.app.tonnavette.dao.NavetteDAO;
-import org.example.app.tonnavette.model.Navette;
-
 import java.sql.Connection;
 
 @WebServlet("/entreprise-login")
@@ -28,7 +20,8 @@ public class LoginEntrepriseServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        try (Connection connection = DatabaseConnection.getConnection()) {
+        try {
+            Connection connection = DatabaseConnection.getConnection();
             EntrepriseDAO dao = new EntrepriseDAO(connection);
             Entreprise entreprise = dao.authentifier(email, password);
 
