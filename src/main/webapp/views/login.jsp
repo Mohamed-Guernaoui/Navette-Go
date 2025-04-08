@@ -16,8 +16,9 @@
 <nav class="relative flex flex-row justify-between items-center w-full p-7 ">
     <div class="flex flex-row gap-20">
         <div>
-            <a href="../index.jsp">
-                <h1 class="text-[30px] font-bold">NavetteToGo</h1>
+            <a href="../list-navettes.jsp">
+                <h1 style="font-family:  'Outfit', 'sans-serif'" class="text-[30px] font-bold text-[#f4b322]">
+                    NavToGo</h1>
             </a>
         </div>
     </div>
@@ -30,7 +31,7 @@
             method="post"
             class=" w-[80%] max-w-[400px] flex flex-col gap-6 justify-center items-center"
     >
-        <h1 class=" font-bold font-gelasio capitalize text-4xl mb-14   ">
+        <h1 class=" font-bold capitalize text-4xl mb-14  " style="font-family:  'Outfit', 'sans-serif'">
             Welcome Back
         </h1>
 
