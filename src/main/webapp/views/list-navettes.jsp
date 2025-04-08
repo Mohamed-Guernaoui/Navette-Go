@@ -17,7 +17,8 @@
           rel="stylesheet">
 </head>
 <body class="bg-[#f5f4f2]">
-<jsp:include page="views/components/NavBar.jsp"/>
+
+<jsp:include page="components/NavBar.jsp"/>
 
 <script>
 
@@ -183,15 +184,15 @@
 
     <!-- Action Buttons -->
     <div class="mt-6 flex justify-end gap-3">
-        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200 flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-            View
-        </button>
+<!--        <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200 flex items-center gap-2">-->
+<!--            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">-->
+<!--                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />-->
+<!--                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />-->
+<!--            </svg>-->
+<!--            View-->
+<!--        </button>-->
 
- <button id="subscribe" class="px-4 py-2 bg-[#f3e322] cursor-pointer text-gray-800 rounded-lg hover:bg-[#e6d41f] transition-colors duration-200 flex items-center gap-2 min-w-[120px] justify-center">
+ <button style="font-family:  'Outfit', 'sans-serif'"  id="subscribe" class="px-5 py-3 bg-[#f3e322] cursor-pointer text-gray-800 rounded-lg hover:bg-[#e6d41f] transition-colors duration-200 flex items-center gap-2 min-w-[120px] justify-center">
     <!-- Default button content -->
     <span class="button-content flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -257,15 +258,13 @@
 
                     // Redirect with loading state
                     setTimeout(() => {
-                        window.location.href = `subscription?navetteId=` + navette.id;
+                        window.location.href = `/views/subscription?navetteId=` + navette.id;
                         // loadingSpinner.classList.add('hidden');
 
                     }, 500); // Add a small delay to show the loading state (optional)
                 });
 
             }
-
-
         }
 
         function fetchFirstNavette(navetteId) {
@@ -306,7 +305,6 @@
             }, 1000)
 
         }
-
 
         document.querySelectorAll(".navette-item").forEach(item => {
             item.addEventListener("click", function () {
@@ -519,8 +517,6 @@
 
     </section>
 </main>
-
-
 </body>
 </html>
 
