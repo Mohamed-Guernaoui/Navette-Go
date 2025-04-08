@@ -84,7 +84,7 @@
 <body>
 <!-- Navigation -->
 <div class=" backdrop-blur-md fixed w-full z-50 border-b  border-gray-100">
-    <jsp:include page="views/components/NavBar.jsp"/>
+    <jsp:include page="components/NavBar.jsp"/>
 </div>
 
 <!-- Hero Section -->
@@ -100,7 +100,8 @@
                     service tailored to your schedule. For organizations, manage your fleet with ease.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="/home" class="btn-primary px-8 py-3 rounded-full font-semibold shadow text-center">
+                    <a href="/find-navettes"
+                       class="btn-primary px-8 py-3 rounded-full font-semibold shadow text-center">
                         <i class="fas fa-search mr-2"></i> Find a Shuttle
                     </a>
                     <a href="#organize"
@@ -402,41 +403,39 @@
             </div>
         </div>
 
-        <div class="mt-12 bg-white rounded-xl shadow-md overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="p-8 md:p-12">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Download Our App</h3>
-                    <p class="text-gray-600 mb-6">Get the full Shuttle experience with our mobile app. Book rides, get
-                        real-time updates, and manage your subscriptions on the go.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#"
-                           class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg flex items-center justify-center">
-                            <i class="fab fa-apple text-2xl mr-2"></i>
-                            <div>
-                                <p class="text-xs">Download on the</p>
-                                <p class="font-medium">App Store</p>
-                            </div>
-                        </a>
-                        <a href="#"
-                           class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg flex items-center justify-center">
-                            <i class="fab fa-google-play text-2xl mr-2"></i>
-                            <div>
-                                <p class="text-xs">Get it on</p>
-                                <p class="font-medium">Google Play</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="hidden md:block bg-gray-100 flex items-center justify-center p-8">
-                    <img src="https://cdn.dribbble.com/users/1787323/screenshots/11310802/media/7c0d1a1f5e7b1bd6c2c5d4e8e4e4e4e4.png"
-                         alt="Mobile App" class="h-64 object-contain">
-                </div>
-            </div>
-        </div>
+        <%--        <div class="mt-12 bg-white rounded-xl shadow-md overflow-hidden">--%>
+        <%--            <div class="grid grid-cols-1 md:grid-cols-2">--%>
+        <%--                <div class="p-8 md:p-12">--%>
+        <%--                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Download Our App</h3>--%>
+        <%--                    <p class="text-gray-600 mb-6">Get the full Shuttle experience with our mobile app. Book rides, get--%>
+        <%--                        real-time updates, and manage your subscriptions on the go.</p>--%>
+        <%--                    <div class="flex flex-col sm:flex-row gap-4">--%>
+        <%--                        <a href="#"--%>
+        <%--                           class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg flex items-center justify-center">--%>
+        <%--                            <i class="fab fa-apple text-2xl mr-2"></i>--%>
+        <%--                            <div>--%>
+        <%--                                <p class="text-xs">Download on the</p>--%>
+        <%--                                <p class="font-medium">App Store</p>--%>
+        <%--                            </div>--%>
+        <%--                        </a>--%>
+        <%--                        <a href="#"--%>
+        <%--                           class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg flex items-center justify-center">--%>
+        <%--                            <i class="fab fa-google-play text-2xl mr-2"></i>--%>
+        <%--                            <div>--%>
+        <%--                                <p class="text-xs">Get it on</p>--%>
+        <%--                                <p class="font-medium">Google Play</p>--%>
+        <%--                            </div>--%>
+        <%--                        </a>--%>
+        <%--                    </div>--%>
+        <%--                </div>--%>
+        <%--                <div class="hidden md:block bg-gray-100 flex items-center justify-center p-8">--%>
+        <%--                    <img src="https://cdn.dribbble.com/users/1787323/screenshots/11310802/media/7c0d1a1f5e7b1bd6c2c5d4e8e4e4e4e4.png"--%>
+        <%--                         alt="Mobile App" class="h-64 object-contain">--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
     </div>
 </section>
-
-<!-- Testimonials Section -->
 
 
 <!-- CTA Section -->
