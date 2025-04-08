@@ -31,7 +31,8 @@ public class CreateEntrepriseServlet extends HttpServlet {
             return;
         }
 
-        try (Connection connection = DatabaseConnection.getConnection()) {
+        try {
+            Connection connection = DatabaseConnection.getConnection();
             Entreprise entreprise = new Entreprise();
             entreprise.setNom(nom);
             entreprise.setEmail(email);
