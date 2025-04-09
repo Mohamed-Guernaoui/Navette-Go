@@ -101,224 +101,233 @@
             </div>
         </div>
 
-        <!-- Login Form -->
-        <div id="login-form" class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">Partner Login</h2>
-                <p class="text-gray-600">Access your business dashboard</p>
-            </div>
+        <div class="relative overflow-hidden min-h-[300px] transition-all">
 
-            <form class="space-y-6">
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Business Email</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i class="fas fa-envelope text-gray-400"></i>
-                        </div>
-                        <input id="email" name="email" type="email" autocomplete="email" required
-                               class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                    </div>
+            <!-- Login Form -->
+            <div id="login-form"
+                 class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8 transition-opacity duration-500 ease-in-out opacity-100">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Partner Login</h2>
+                    <p class="text-gray-600">Access your business dashboard</p>
                 </div>
 
-                <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i class="fas fa-lock text-gray-400"></i>
-                        </div>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
-                               class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input id="remember-me" name="remember-me" type="checkbox"
-                               class="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded">
-                        <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
-                    </div>
-
-                    <div class="text-sm">
-                        <a href="#" class="font-medium text-yellow-600 hover:text-yellow-500">Forgot password?</a>
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit"
-                            class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
-                        Sign in to dashboard
-                    </button>
-                </div>
-            </form>
-
-            <div class="mt-6">
-                <div class="relative">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-2 bg-white text-gray-500">Or continue with</span>
-                    </div>
-                </div>
-
-                <div class="mt-6 grid grid-cols-2 gap-3">
-                    <a href="#"
-                       class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        <i class="fab fa-google text-red-500 mr-2"></i> Google
-                    </a>
-
-                    <a href="#"
-                       class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        <i class="fab fa-microsoft text-blue-500 mr-2"></i> Microsoft
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Registration Form (Hidden by default) -->
-        <div id="register-form"
-             class="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8 hidden">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">Become a Shuttle Partner</h2>
-                <p class="text-gray-600">Join our network and grow your business</p>
-            </div>
-
-            <form class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form class="space-y-6">
                     <div>
-                        <label for="company-name" class="block text-sm font-medium text-gray-700 mb-1">Company Name
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Business Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input id="email" name="email" type="email" autocomplete="email" required
+                                   class="input-focus outline-none pl-10 block w-full rounded-md border-gray-300 shadow-sm  py-3 border">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input id="password" name="password" type="password" autocomplete="current-password"
+                                   required
+                                   class="input-focus outline-none pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox"
+                                   class="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                        </div>
+
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-yellow-600 hover:text-yellow-500">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                                class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                            Sign in to dashboard
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+
+                        <a href="#"
+                           class="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500 mr-2"></i> Google
+                        </a>
+
+                        <a href="#"
+                           class="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-microsoft text-blue-500 mr-2"></i> Microsoft
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form (Hidden by default) -->
+            <div id="register-form"
+                 class="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8 hidden transition-opacity duration-500 ease-in-out opacity-0">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Become a Shuttle Partner</h2>
+                    <p class="text-gray-600">Join our network and grow your business</p>
+                </div>
+
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="company-name" class="block text-sm font-medium text-gray-700 mb-1">Company Name
+                                *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-building text-gray-400"></i>
+                                </div>
+                                <input id="company-name" name="company-name" type="text" required
+                                       class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="company-type" class="block text-sm font-medium text-gray-700 mb-1">Company Type
+                                *</label>
+                            <select id="company-type" name="company-type"
+                                    class="input-focus px-4 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                                <option value="">Select your business type</option>
+                                <option value="transport">Transportation Company</option>
+                                <option value="school">School/University</option>
+                                <option value="corporate">Corporate Shuttle</option>
+                                <option value="municipal">Municipal Service</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Contact
+                                Person
+                                *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <input id="contact-name" name="contact-name" type="text" required
+                                       class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number
+                                *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone text-gray-400"></i>
+                                </div>
+                                <input id="contact-phone" name="contact-phone" type="tel" required
+                                       class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="business-email" class="block text-sm font-medium text-gray-700 mb-1">Business Email
                             *</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-building text-gray-400"></i>
+                                <i class="fas fa-envelope text-gray-400"></i>
                             </div>
-                            <input id="company-name" name="company-name" type="text" required
+                            <input id="business-email" name="business-email" type="email" required
                                    class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                         </div>
                     </div>
 
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Create Password
+                                *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input id="password" name="password" type="password" required
+                                       class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500">Minimum 8 characters</p>
+                        </div>
+
+                        <div>
+                            <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirm
+                                Password *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input id="confirm-password" name="confirm-password" type="password" required
+                                       class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                            </div>
+                        </div>
+                    </div>
+
                     <div>
-                        <label for="company-type" class="block text-sm font-medium text-gray-700 mb-1">Company Type
-                            *</label>
-                        <select id="company-type" name="company-type"
-                                class="input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                            <option value="">Select your business type</option>
-                            <option value="transport">Transportation Company</option>
-                            <option value="school">School/University</option>
-                            <option value="corporate">Corporate Shuttle</option>
-                            <option value="municipal">Municipal Service</option>
-                            <option value="other">Other</option>
+                        <label for="fleet-size" class="block text-sm font-medium text-gray-700 mb-1">Approximate Fleet
+                            Size</label>
+                        <select id="fleet-size" name="fleet-size"
+                                class="input-focus px-4 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                            <option value="">Select fleet size</option>
+                            <option value="1-5">1-5 vehicles</option>
+                            <option value="6-10">6-10 vehicles</option>
+                            <option value="11-20">11-20 vehicles</option>
+                            <option value="21-50">21-50 vehicles</option>
+                            <option value="50+">50+ vehicles</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Contact Person
-                            *</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-user text-gray-400"></i>
-                            </div>
-                            <input id="contact-name" name="contact-name" type="text" required
-                                   class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                        </div>
-                    </div>
 
                     <div>
-                        <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number
-                            *</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-phone text-gray-400"></i>
-                            </div>
-                            <input id="contact-phone" name="contact-phone" type="tel" required
-                                   class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                        </div>
+                        <label for="operating-areas" class="block text-sm font-medium text-gray-700 mb-1">Primary
+                            Operating
+                            Areas</label>
+                        <textarea id="operating-areas" name="operating-areas" rows="3"
+                                  class="input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border"></textarea>
+                        <p class="mt-1 text-xs text-gray-500">List cities or regions where you operate</p>
                     </div>
-                </div>
 
-                <div>
-                    <label for="business-email" class="block text-sm font-medium text-gray-700 mb-1">Business Email
-                        *</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i class="fas fa-envelope text-gray-400"></i>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="terms" name="terms" type="checkbox"
+                                   class="focus:ring-yellow-500 h-4 w-4 text-yellow-600 border-gray-300 rounded"
+                                   required>
                         </div>
-                        <input id="business-email" name="business-email" type="email" required
-                               class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Create Password
-                            *</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-lock text-gray-400"></i>
-                            </div>
-                            <input id="password" name="password" type="password" required
-                                   class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
+                        <div class="ml-3 text-sm">
+                            <label for="terms" class="font-medium text-gray-700">I agree to the <a href="#"
+                                                                                                   class="text-yellow-600 hover:text-yellow-500">Terms
+                                of Service</a> and <a href="#" class="text-yellow-600 hover:text-yellow-500">Privacy
+                                Policy</a></label>
                         </div>
-                        <p class="mt-1 text-xs text-gray-500">Minimum 8 characters</p>
                     </div>
 
                     <div>
-                        <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirm
-                            Password *</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-lock text-gray-400"></i>
-                            </div>
-                            <input id="confirm-password" name="confirm-password" type="password" required
-                                   class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                        </div>
+                        <button type="submit"
+                                class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                            Apply to Become a Partner
+                        </button>
                     </div>
-                </div>
-
-                <div>
-                    <label for="fleet-size" class="block text-sm font-medium text-gray-700 mb-1">Approximate Fleet
-                        Size</label>
-                    <select id="fleet-size" name="fleet-size"
-                            class="input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
-                        <option value="">Select fleet size</option>
-                        <option value="1-5">1-5 vehicles</option>
-                        <option value="6-10">6-10 vehicles</option>
-                        <option value="11-20">11-20 vehicles</option>
-                        <option value="21-50">21-50 vehicles</option>
-                        <option value="50+">50+ vehicles</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="operating-areas" class="block text-sm font-medium text-gray-700 mb-1">Primary Operating
-                        Areas</label>
-                    <textarea id="operating-areas" name="operating-areas" rows="3"
-                              class="input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border"></textarea>
-                    <p class="mt-1 text-xs text-gray-500">List cities or regions where you operate</p>
-                </div>
-
-                <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                        <input id="terms" name="terms" type="checkbox"
-                               class="focus:ring-yellow-500 h-4 w-4 text-yellow-600 border-gray-300 rounded" required>
-                    </div>
-                    <div class="ml-3 text-sm">
-                        <label for="terms" class="font-medium text-gray-700">I agree to the <a href="#"
-                                                                                               class="text-yellow-600 hover:text-yellow-500">Terms
-                            of Service</a> and <a href="#" class="text-yellow-600 hover:text-yellow-500">Privacy
-                            Policy</a></label>
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit"
-                            class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
-                        Apply to Become a Partner
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </main>
@@ -385,24 +394,59 @@
 </footer>
 
 <script>
-    // Simple tab switching functionality
-    document.getElementById('login-tab').addEventListener('click', function () {
-        this.classList.add('tab-active');
-        this.classList.remove('text-gray-500');
-        document.getElementById('register-tab').classList.remove('tab-active');
-        document.getElementById('register-tab').classList.add('text-gray-500');
-        document.getElementById('login-form').classList.remove('hidden');
-        document.getElementById('register-form').classList.add('hidden');
+    const current_action = "<%= request.getParameter("action") != null ? request.getParameter("action") : "" %>";
+
+    const loginTab = document.getElementById('login-tab');
+    const registerTab = document.getElementById('register-tab');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    // Function to activate login tab
+    function activateLoginTab() {
+        loginTab.classList.add('tab-active');
+        loginTab.classList.remove('text-gray-500');
+        registerTab.classList.remove('tab-active');
+        registerTab.classList.add('text-gray-500');
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+
+        setTimeout(() => {
+            loginForm.classList.add('opacity-100');
+            loginForm.classList.remove('opacity-0');
+            registerForm.classList.add('opacity-0');
+            registerForm.classList.remove('opacity-100');
+        }, 10);
+    }
+
+    // Function to activate register tab
+    function activateRegisterTab() {
+        registerTab.classList.add('tab-active');
+        registerTab.classList.remove('text-gray-500');
+        loginTab.classList.remove('tab-active');
+        loginTab.classList.add('text-gray-500');
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+        setTimeout(() => {
+            registerForm.classList.add('opacity-100');
+            registerForm.classList.remove('opacity-0');
+            loginForm.classList.add('opacity-0');
+            loginForm.classList.remove('opacity-100');
+        }, 10);
+    }
+
+    // On initial page load: check action param
+    window.addEventListener('DOMContentLoaded', () => {
+        if (current_action === 'sign-up') {
+            activateRegisterTab();
+        } else {
+            activateLoginTab();
+        }
     });
 
-    document.getElementById('register-tab').addEventListener('click', function () {
-        this.classList.add('tab-active');
-        this.classList.remove('text-gray-500');
-        document.getElementById('login-tab').classList.remove('tab-active');
-        document.getElementById('login-tab').classList.add('text-gray-500');
-        document.getElementById('register-form').classList.remove('hidden');
-        document.getElementById('login-form').classList.add('hidden');
-    });
+    // Add click listeners
+    loginTab.addEventListener('click', activateLoginTab);
+    registerTab.addEventListener('click', activateRegisterTab);
 </script>
+
 </body>
 </html>
