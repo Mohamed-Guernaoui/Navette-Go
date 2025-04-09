@@ -111,14 +111,14 @@
                     <p class="text-gray-600">Access your business dashboard</p>
                 </div>
 
-                <form class="space-y-6">
+                <form class="space-y-6" action="/partner-login" method="post">
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Business Email</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-envelope text-gray-400"></i>
                             </div>
-                            <input id="email" name="email" type="email" autocomplete="email" required
+                            <input id="email" name="business-email" type="email" autocomplete="email" required
                                    class="input-focus outline-none pl-10 block w-full rounded-md border-gray-300 shadow-sm  py-3 border">
                         </div>
                     </div>
@@ -188,24 +188,24 @@
                     <p class="text-gray-600">Join our network and grow your business</p>
                 </div>
 
-                <form class="space-y-6">
+                <form class="space-y-6" action="/create-partner-account" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="company-name" class="block text-sm font-medium text-gray-700 mb-1">Company Name
+                            <label for="companyName" class="block text-sm font-medium text-gray-700 mb-1">Company Name
                                 *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-building text-gray-400"></i>
                                 </div>
-                                <input id="company-name" name="company-name" type="text" required
+                                <input id="companyName" name="company-name" type="text" required
                                        class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             </div>
                         </div>
 
                         <div>
-                            <label for="company-type" class="block text-sm font-medium text-gray-700 mb-1">Company Type
+                            <label for="companyType" class="block text-sm font-medium text-gray-700 mb-1">Company Type
                                 *</label>
-                            <select id="company-type" name="company-type"
+                            <select id="companyType" name="companyType"
                                     class="input-focus px-4 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                                 <option value="">Select your business type</option>
                                 <option value="transport">Transportation Company</option>
@@ -219,52 +219,53 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Contact
+                            <label for="contactPerson" class="block text-sm font-medium text-gray-700 mb-1">Contact
                                 Person
                                 *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-user text-gray-400"></i>
                                 </div>
-                                <input id="contact-name" name="contact-name" type="text" required
+                                <input id="contactPerson" name="contactPerson" type="text" required
                                        class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             </div>
                         </div>
 
                         <div>
-                            <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number
+                            <label for="contactPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number
                                 *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-phone text-gray-400"></i>
                                 </div>
-                                <input id="contact-phone" name="contact-phone" type="tel" required
+                                <input id="contactPhone" name="contactPhone" type="tel" required
                                        class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <label for="business-email" class="block text-sm font-medium text-gray-700 mb-1">Business Email
+                        <label for="businessEmail" class="block text-sm font-medium text-gray-700 mb-1">Business Email
                             *</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-envelope text-gray-400"></i>
                             </div>
-                            <input id="business-email" name="business-email" type="email" required
+                            <input id="businessEmail" name="businessEmail" type="email" required
                                    class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Create Password
+                            <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">Create
+                                Password
                                 *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-lock text-gray-400"></i>
                                 </div>
-                                <input id="password" name="password" type="password" required
+                                <input id="newPassword" name="newPassword" type="Password" required
                                        class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             </div>
                             <p class="mt-1 text-xs text-gray-500">Minimum 8 characters</p>
@@ -284,9 +285,9 @@
                     </div>
 
                     <div>
-                        <label for="fleet-size" class="block text-sm font-medium text-gray-700 mb-1">Approximate Fleet
+                        <label for="fleetSize" class="block text-sm font-medium text-gray-700 mb-1">Approximate Fleet
                             Size</label>
-                        <select id="fleet-size" name="fleet-size"
+                        <select id="fleetSize" name="fleetSize"
                                 class="input-focus px-4 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             <option value="">Select fleet size</option>
                             <option value="1-5">1-5 vehicles</option>
@@ -298,10 +299,10 @@
                     </div>
 
                     <div>
-                        <label for="operating-areas" class="block text-sm font-medium text-gray-700 mb-1">Primary
+                        <label for="operatingAreas" class="block text-sm font-medium text-gray-700 mb-1">Primary
                             Operating
                             Areas</label>
-                        <textarea id="operating-areas" name="operating-areas" rows="3"
+                        <textarea id="operatingAreas" name="operatingAreas" rows="3"
                                   class="input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border"></textarea>
                         <p class="mt-1 text-xs text-gray-500">List cities or regions where you operate</p>
                     </div>
