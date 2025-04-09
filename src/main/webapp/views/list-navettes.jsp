@@ -258,7 +258,7 @@
 
                     // Redirect with loading state
                     setTimeout(() => {
-                        window.location.href = `/views/subscription?navetteId=` + navette.id;
+                        window.location.href = `/subscription?navetteId=` + navette.id;
                         // loadingSpinner.classList.add('hidden');
 
                     }, 500); // Add a small delay to show the loading state (optional)
