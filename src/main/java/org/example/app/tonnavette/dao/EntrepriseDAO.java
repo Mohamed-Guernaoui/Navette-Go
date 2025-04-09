@@ -34,11 +34,17 @@ public class EntrepriseDAO {
     }
 
     public boolean createEntreprise(Entreprise entreprise) {
-        String sql = "INSERT INTO Entreprise (Nom, Email, Mot_de_passe) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Entreprise (Nom, Email, phone_number, contact_person, fleet_size, operating_areas, company_type, Mot_de_passe) VALUES ( ?, ?, ?, ?,?,?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, entreprise.getNom());
             ps.setString(2, entreprise.getEmail());
             ps.setString(3, entreprise.getHashedPassword());
+            ps.setString(4, entreprise.getPhoneNumber());
+            ps.setString(5, entreprise.getContactPerson());
+            ps.setString(6, entreprise.getFleetSize());
+            ps.setString(7, entreprise.getOperatingAreas());
+            ps.setString(8, entreprise.getCompanyType());
+
 
             int rowsAffected = ps.executeUpdate();
             return rowsAffected > 0;

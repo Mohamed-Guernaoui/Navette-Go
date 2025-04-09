@@ -6,6 +6,52 @@ public class Entreprise {
     private String Nom;
     private String Email;
     private String hashedPassword;
+    private String phoneNumber;
+    private String contactPerson;
+    private String fleetSize;
+    private String operatingAreas;
+    private String companyType;
+
+    // Getters and setters
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public String getFleetSize() {
+        return fleetSize;
+    }
+
+    public void setFleetSize(String fleetSize) {
+        this.fleetSize = fleetSize;
+    }
+
+    public String getOperatingAreas() {
+        return operatingAreas;
+    }
+
+    public void setOperatingAreas(String operatingAreas) {
+        this.operatingAreas = operatingAreas;
+    }
+
+    public String getCompanyType() {
+        return companyType;
+    }
+
+    public void setCompanyType(String companyType) {
+        this.companyType = companyType;
+    }
 
 
 
