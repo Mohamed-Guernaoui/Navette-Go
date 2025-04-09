@@ -10,14 +10,14 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.sql.Connection;
 
-@WebServlet("/entreprise-login")
+@WebServlet("/partner-login")
 public class LoginEntrepriseServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String email = request.getParameter("email");
+        String email = request.getParameter("business-email");
         String password = request.getParameter("password");
 
         try {
@@ -29,7 +29,7 @@ public class LoginEntrepriseServlet extends HttpServlet {
                 // Login successful – create session
                 HttpSession session = request.getSession();
                 session.setAttribute("entreprise", entreprise);
-                response.sendRedirect("entreprise-dashboard.jsp");
+                response.sendRedirect("/views/partner-dashboard.jsp");
             } else {
                 // Login failed – set error and forward back
                 request.setAttribute("error", "Invalid email or password.");
