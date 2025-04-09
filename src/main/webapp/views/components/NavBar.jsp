@@ -85,12 +85,13 @@
         <% } else { %>
         <div class="flex items-center gap-4">
             <a style="font-family: 'Outfit', sans-serif"
+               href="../../views/commuter-account-login.jsp?action=sign-up"
                class="whitespace-nowrap bg-gray-900 text-white rounded-lg py-3 px-6 text-lg font-medium hover:bg-gray-800 transition-colors duration-200">
-                Sign in
+                For Commuters
             </a>
-            <a style="font-family: 'Outfit', sans-serif" href="../../views/login.jsp"
+            <a style="font-family: 'Outfit', sans-serif" href="../../views/business-account-login.jsp?action=sign-up"
                class="whitespace-nowrap rounded-lg py-3 px-6 text-lg font-medium bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
-                Login
+                Become Partner
             </a>
         </div>
         <% } %>
