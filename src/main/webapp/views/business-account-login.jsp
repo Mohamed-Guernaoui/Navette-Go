@@ -57,6 +57,152 @@
             font-weight: 600;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const action = urlParams.get('action');
+            const error = urlParams.get('error');
+            if (action === 'sign-up' && error) {
+
+                showSignUpError(error);
+            }
+
+            function showSignUpError(errorType) {
+                const errorMessages = {
+                    'email_exists': 'This email is already registered. Please use a different email or log in.',
+                    'registration_failed': 'Registration failed. Please try again.',
+                    'server_error': 'A server error occurred. Please try again later.',
+                    'missing_fields': 'Please fill in all required fields.'
+                };
+
+                const message = errorMessages[errorType] || 'An error occurred during registration.';
+                console.log(message)
+
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'auth-error';
+                errorDiv.innerHTML = `
+            <div class="error-content">
+                <i class="error-icon">!</i>
+                <span class="error-message">` + message + `</span>
+            </div>
+        `;
+
+                const form = document.querySelector('form[id="partnerRegister"]');
+                if (form) {
+                    form.insertBefore(errorDiv, form.firstChild);
+                    console.log(form)
+                }
+
+                // Highlight problematic fields
+                if (errorType === 'email_exists') {
+                    const emailInput = document.querySelector('input[id="commuter-email"]');
+                    console.log(emailInput)
+                    if (emailInput) {
+                        emailInput.classList.add('input-error');
+                        emailInput.addEventListener('input', () => {
+                            emailInput.classList.remove('input-error');
+                        });
+                    }
+                }
+            }
+
+            function showAuthError() {
+                console.log("jjn h")
+                // Create error message element
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'auth-error';
+                errorDiv.innerHTML = `
+            <div class="error-content">
+                <i class="error-icon">!</i>
+                <span class="error-message">Invalid email or password. Please try again.</span>
+            </div>
+        `;
+
+                // Insert it near your login form
+                const form = document.querySelector('form[id="partnerloginform"]');
+
+                if (form) {
+                    form.insertBefore(errorDiv, form.firstChild);
+                }
+
+                // Optionally highlight the email/password fields
+                const emailInput = document.querySelector('input[name="email"]');
+                const passwordInput = document.querySelector('input[name="password"]');
+
+                if (emailInput && passwordInput) {
+                    emailInput.classList.add('input-error');
+                    passwordInput.classList.add('input-error');
+
+                    // Clear error on input
+                    emailInput.addEventListener('input', () => {
+                        emailInput.classList.remove('input-error');
+                    });
+
+                    passwordInput.addEventListener('input', () => {
+                        passwordInput.classList.remove('input-error');
+                    });
+                }
+            }
+
+            // Check if there's an authentication error
+            if (action === 'sign-in' && error === 'True') {
+                showAuthError();
+            }
+
+
+        });
+
+        // Add this CSS to your page
+        const errorStyles = document.createElement('style');
+        errorStyles.textContent = `
+.auth-error {
+    background-color: #ffeeee;
+    border: 1px solid #ffcccc;
+    border-radius: 4px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.error-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.error-icon {
+    background-color: #ff4d4f;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.error-message {
+    color: #ff4d4f;
+    font-size: 14px;
+}
+
+.input-error {
+    border-color: #ff4d4f !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+`;
+        document.head.appendChild(errorStyles);
+    </script>
 </head>
 <body>
 <!-- Header -->
@@ -91,13 +237,14 @@
         <!-- Tab Navigation -->
         <div class="max-w-md mx-auto mb-8">
             <div class="flex border-b border-gray-200">
-                <button id="login-tab" class="flex-1 py-4 px-1 text-center font-medium text-sm tab-active">
+                <a href="/views/business-account-login.jsp?action=sign-in"
+                   class="flex-1 py-4 px-1 text-center font-medium text-sm tab-active" id="login-tab">
                     <i class="fas fa-sign-in-alt mr-2"></i> Partner Login
-                </button>
-                <button id="register-tab"
+                </a>
+                <a href="/views/business-account-login.jsp?action=sign-up" id="register-tab"
                         class="flex-1 py-4 px-1 text-center font-medium text-sm text-gray-500 hover:text-gray-700">
                     <i class="fas fa-user-plus mr-2"></i> Become a Partner
-                </button>
+                </a>
             </div>
         </div>
 
@@ -105,13 +252,13 @@
 
             <!-- Login Form -->
             <div id="login-form"
-                 class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8 transition-opacity duration-500 ease-in-out opacity-100">
+                 class="max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8 hidden transition-opacity duration-500 ease-in-out opacity-0">
                 <div class="text-center mb-6">
                     <h2 class="text-2xl font-bold text-gray-800">Partner Login</h2>
                     <p class="text-gray-600">Access your business dashboard</p>
                 </div>
 
-                <form class="space-y-6" action="/partner-login" method="post">
+                <form id="partnerloginform" class="space-y-6" action="/partner-login" method="post">
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Business Email</label>
                         <div class="relative">
@@ -188,7 +335,7 @@
                     <p class="text-gray-600">Join our network and grow your business</p>
                 </div>
 
-                <form class="space-y-6" action="/create-partner-account" method="post">
+                <form id="partnerRegister" class="space-y-6" action="/create-partner-account" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="companyName" class="block text-sm font-medium text-gray-700 mb-1">Company Name
@@ -445,8 +592,8 @@
     });
 
     // Add click listeners
-    loginTab.addEventListener('click', activateLoginTab);
-    registerTab.addEventListener('click', activateRegisterTab);
+    // loginTab.addEventListener('click', activateLoginTab);
+    // registerTab.addEventListener('click', activateRegisterTab);
 </script>
 
 </body>
