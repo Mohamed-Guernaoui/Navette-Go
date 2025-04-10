@@ -33,6 +33,18 @@ public class EntrepriseDAO {
         return null;
     }
 
+    public boolean emailExists(String email) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM entreprise WHERE Email = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        }
+        return false;
+    }
+
     public boolean createEntreprise(Entreprise entreprise) {
         String sql = "INSERT INTO Entreprise (Nom, Email, phone_number, contact_person, fleet_size, operating_areas, company_type, Mot_de_passe) VALUES ( ?, ?, ?, ?,?,?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
