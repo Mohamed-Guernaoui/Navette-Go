@@ -53,7 +53,7 @@ public class SubscriptionSaveServlet extends HttpServlet {
             e.printStackTrace();
             request.setAttribute("toastMessage", "❌ Failed to subscribe. Please try again later.");
             request.setAttribute("toastType", "error");
-            request.getRequestDispatcher("/subscription.jsp").forward(request, response);
+            request.getRequestDispatcher("../webapp/views/subscriptionPage.jsp").forward(request, response);
         }
     }
 
