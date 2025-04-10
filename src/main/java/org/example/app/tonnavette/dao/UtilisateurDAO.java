@@ -19,12 +19,14 @@ public class UtilisateurDAO {
     }
 
     public boolean ajouterUtilisateur(Utilisateur user) {
-        String sql = "INSERT INTO Utilisateur (nom, email, motDePasse, role) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Utilisateur (nom,prenom, email,telephone, motDePasse, profession) VALUES (?, ?, ?, ?,?,?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, user.getNom());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getMotDePasse()); // Attention : hacher les mots de passe
-            stmt.setString(4, user.getRole());
+            stmt.setString(2, user.getPrenom());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getTelephone());
+            stmt.setString(5, user.getMotDePasse()); // Attention : hacher les mots de passe
+            stmt.setString(6, user.getProf());
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -54,15 +56,31 @@ public class UtilisateurDAO {
 //        }
 //        return utilisateurs;
 //    }
-
+public boolean emailExists(String email) throws SQLException {
+    String sql = "SELECT COUNT(*) FROM Utilisateur WHERE email = ?";
+    try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        stmt.setString(1, email);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1) > 0;
+        }
+    }
+    return false;
+}
     public Utilisateur authentifier(String email, String motDePasse) {
-        String sql = "SELECT * FROM Utilisateur WHERE email = ? AND motDePasse = ?";
+        String sql = "SELECT id, nom, email, motDePasse, prenom FROM Utilisateur WHERE email = ? AND motDePasse = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, email);
             stmt.setString(2, motDePasse);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Utilisateur utilisateur = new Utilisateur(rs.getInt("id"), rs.getString("nom"), email, rs.getString("role"), rs.getString("telephone"), rs.getString("prenom"));
+                Utilisateur utilisateur = new Utilisateur();
+                utilisateur.setId(rs.getInt("id"));
+                utilisateur.setNom(rs.getString("nom"));
+                utilisateur.setPrenom(rs.getString("prenom"));
+                utilisateur.setEmail(rs.getString("email"));
+
+
                 // Log response
                 logger.info("This is an INFO log message");
                 System.out.println("User authenticated: " + utilisateur);

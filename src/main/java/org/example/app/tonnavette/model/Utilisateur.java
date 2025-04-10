@@ -5,27 +5,27 @@ public class Utilisateur {
     private String nom;
     private String email;
     private String motDePasse;
-    private String role; // "Client" ou "Société"
+    private String prof; // "Client" ou "Société"
     private String telephone;
     private String prenom;
 
-    public Utilisateur(
-            int id, String nom, String email, String role, String telephone, String prenom
-    ) {
-        this.id = id;
-        this.nom = nom;
-        this.email = email;
-        this.role = role;
-        this.telephone = telephone;
-        this.prenom = prenom;
-    }
-
-    public Utilisateur(String nom, String email, String motDePasse, String role) {
-        this.nom = nom;
-        this.email = email;
-        this.motDePasse = motDePasse;
-        this.role = role;
-    }
+    //    public Utilisateur(
+//            int id, String nom, String email, String prof, String telephone, String prenom
+//    ) {
+//        this.id = id;
+//        this.nom = nom;
+//        this.email = email;
+//        this.prof = prof;
+//        this.telephone = telephone;
+//        this.prenom = prenom;
+//    }
+//
+//    public Utilisateur(String nom, String email, String motDePasse, String prof) {
+//        this.nom = nom;
+//        this.email = email;
+//        this.motDePasse = motDePasse;
+//        this.prof = prof;
+//    }
     public int getId() {
         return id;
     }
@@ -55,12 +55,12 @@ public class Utilisateur {
         this.motDePasse = motDePasse;
     }
 
-    public String getRole() {
-        return role;
+    public String getProf() {
+        return prof;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setProf(String prof) {
+        this.prof = prof;
     }
 
     public String getTelephone() {
