@@ -55,6 +55,151 @@
             font-weight: 600;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const action = urlParams.get('action');
+            const error = urlParams.get('error');
+            if (action === 'sign-up' && error) {
+
+                showSignUpError(error);
+            }
+
+            function showSignUpError(errorType) {
+                const errorMessages = {
+                    'email_exists': 'This email is already registered. Please use a different email or log in.',
+                    'registration_failed': 'Registration failed. Please try again.',
+                    'server_error': 'A server error occurred. Please try again later.',
+                    'missing_fields': 'Please fill in all required fields.'
+                };
+
+                const message = errorMessages[errorType] || 'An error occurred during registration.';
+                console.log(message)
+
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'auth-error';
+                errorDiv.innerHTML = `
+            <div class="error-content">
+                <i class="error-icon">!</i>
+                <span class="error-message">` + message + `</span>
+            </div>
+        `;
+
+                const form = document.querySelector('form[id="signupform"]');
+                if (form) {
+                    form.insertBefore(errorDiv, form.firstChild);
+                    console.log(form)
+                }
+
+                // Highlight problematic fields
+                if (errorType === 'email_exists') {
+                    const emailInput = document.querySelector('input[id="commuter-email"]');
+                    console.log(emailInput)
+                    if (emailInput) {
+                        emailInput.classList.add('input-error');
+                        emailInput.addEventListener('input', () => {
+                            emailInput.classList.remove('input-error');
+                        });
+                    }
+                }
+            }
+
+            function showAuthError() {
+                // Create error message element
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'auth-error';
+                errorDiv.innerHTML = `
+            <div class="error-content">
+                <i class="error-icon">!</i>
+                <span class="error-message">Invalid email or password. Please try again.</span>
+            </div>
+        `;
+
+                // Insert it near your login form
+                const form = document.querySelector('form[id="signinform"]');
+
+                if (form) {
+                    form.insertBefore(errorDiv, form.firstChild);
+                }
+
+                // Optionally highlight the email/password fields
+                const emailInput = document.querySelector('input[name="email"]');
+                const passwordInput = document.querySelector('input[name="password"]');
+
+                if (emailInput && passwordInput) {
+                    emailInput.classList.add('input-error');
+                    passwordInput.classList.add('input-error');
+
+                    // Clear error on input
+                    emailInput.addEventListener('input', () => {
+                        emailInput.classList.remove('input-error');
+                    });
+
+                    passwordInput.addEventListener('input', () => {
+                        passwordInput.classList.remove('input-error');
+                    });
+                }
+            }
+
+            // Check if there's an authentication error
+            if (action === 'sign-in' && error === 'True') {
+                showAuthError();
+            }
+
+
+        });
+
+        // Add this CSS to your page
+        const errorStyles = document.createElement('style');
+        errorStyles.textContent = `
+.auth-error {
+    background-color: #ffeeee;
+    border: 1px solid #ffcccc;
+    border-radius: 4px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.error-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.error-icon {
+    background-color: #ff4d4f;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.error-message {
+    color: #ff4d4f;
+    font-size: 14px;
+}
+
+.input-error {
+    border-color: #ff4d4f !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+`;
+        document.head.appendChild(errorStyles);
+    </script>
 </head>
 <body>
 <!-- Header -->
@@ -69,7 +214,7 @@
             <a href="#" class="text-gray-700 hover:text-yellow-500">Pricing</a>
             <a href="#" class="text-gray-700 hover:text-yellow-500">How It Works</a>
         </nav>
-        <a href="/" class="text-sm font-medium text-yellow-600 hover:text-yellow-700">
+        <a href="index.jsp" class="text-sm font-medium text-yellow-600 hover:text-yellow-700">
             <i class="fas fa-home mr-1"></i> Home
         </a>
     </div>
@@ -86,27 +231,28 @@
         <!-- Tab Navigation -->
         <div class="max-w-md mx-auto mb-8">
             <div class="flex border-b border-gray-200">
-                <button id="login-tab" class="flex-1 py-4 px-1 text-center font-medium text-sm tab-active">
+                <a href="/views/commuter-account-login.jsp?action=sign-in" id="login-tab"
+                   class="flex-1 py-4 px-1 text-center font-medium text-sm tab-active">
                     <i class="fas fa-sign-in-alt mr-2"></i> Sign In
-                </button>
-                <button id="register-tab"
-                        class="flex-1 py-4 px-1 text-center font-medium text-sm text-gray-500 hover:text-gray-700">
+                </a>
+                <a href="/views/commuter-account-login.jsp?action=sign-up" id="register-tab"
+                   class="flex-1 py-4 px-1 text-center font-medium text-sm text-gray-500 hover:text-gray-700">
                     <i class="fas fa-user-plus mr-2"></i> Create Account
-                </button>
+                </a>
             </div>
         </div>
         <div class="relative overflow-hidden min-h-[300px] transition-all">
 
             <!-- Login Form -->
             <div id="login-form"
-                 class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8 transition-opacity duration-500 ease-in-out opacity-100">
+                 class="max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden form-card p-8 hidden transition-opacity duration-500 ease-in-out opacity-0">
 
                 <div class="text-center mb-6">
                     <h2 class="text-2xl font-bold text-gray-800">Welcome Back</h2>
                     <p class="text-gray-600">Sign in to book your next ride</p>
                 </div>
 
-                <form class="space-y-6">
+                <form id="signinform" class="space-y-6" method="post" action="/sign-in">
                     <div>
                         <label for="user-email" class="block text-sm font-medium text-gray-700 mb-1">Email
                             Address</label>
@@ -184,42 +330,42 @@
                     <p class="text-gray-600">Join thousands of happy commuters</p>
                 </div>
 
-                <form class="space-y-6">
+                <form id="signupform" class="space-y-6" action="/create-commuter-account" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name
+                            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name
                                 *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-user text-gray-400"></i>
                                 </div>
-                                <input id="first-name" name="first-name" type="text" required
+                                <input id="firstName" name="firstName" type="text" required
                                        class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             </div>
                         </div>
 
                         <div>
-                            <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name
+                            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name
                                 *</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-user text-gray-400"></i>
                                 </div>
-                                <input id="last-name" name="last-name" type="text" required
+                                <input id="lastName" name="lastName" type="text" required
                                        class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <label for="user-email-register" class="block text-sm font-medium text-gray-700 mb-1">Email
+                        <label for="commuter-email" class="block text-sm font-medium text-gray-700 mb-1">Email
                             Address
                             *</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-envelope text-gray-400"></i>
                             </div>
-                            <input id="user-email-register" name="email" type="email" required
+                            <input id="commuter-email" name="email" type="email" required
                                    class="input-focus outline-none pl-10 block w-full rounded-md border-gray-300 shadow-sm  py-3 border">
                         </div>
                     </div>
@@ -252,21 +398,21 @@
                     </div>
 
                     <div>
-                        <label for="phone-number" class="block text-sm font-medium text-gray-700 mb-1">Phone
+                        <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-1">Phone
                             Number</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-phone text-gray-400"></i>
                             </div>
-                            <input id="phone-number" name="phone-number" type="tel"
+                            <input id="phoneNumber" name="phoneNumber" type="tel"
                                    class="input-focus pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                         </div>
                         <p class="mt-1 text-xs text-gray-500">For ride notifications</p>
                     </div>
 
                     <div>
-                        <label for="user-type" class="block text-sm font-medium text-gray-700 mb-1">I'm a</label>
-                        <select id="user-type" name="user-type"
+                        <label for="prof" class="block text-sm font-medium text-gray-700 mb-1">I'm a</label>
+                        <select id="prof" name="prof"
                                 class="input-focus outline-none px-4 block w-full rounded-md border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 py-3 border">
                             <option value="student">Student</option>
                             <option value="professional">Working Professional</option>
@@ -412,8 +558,8 @@
     });
 
     // Add click listeners
-    loginTab.addEventListener('click', activateLoginTab);
-    registerTab.addEventListener('click', activateRegisterTab);
+    // loginTab.addEventListener('click', activateLoginTab);
+    // registerTab.addEventListener('click', activateRegisterTab);
 </script>
 </body>
 </html>
