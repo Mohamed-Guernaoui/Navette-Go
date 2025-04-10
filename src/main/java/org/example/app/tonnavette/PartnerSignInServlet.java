@@ -11,7 +11,7 @@ import jakarta.servlet.annotation.*;
 import java.sql.Connection;
 
 @WebServlet("/partner-login")
-public class LoginEntrepriseServlet extends HttpServlet {
+public class PartnerSignInServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -33,7 +33,7 @@ public class LoginEntrepriseServlet extends HttpServlet {
             } else {
                 // Login failed – set error and forward back
                 request.setAttribute("error", "Invalid email or password.");
-                request.getRequestDispatcher("/entreprise-login.jsp").forward(request, response);
+                request.getRequestDispatcher("./views/business-account-login.jsp?action=sign-in&error=True").forward(request, response);
             }
 
         } catch (Exception e) {

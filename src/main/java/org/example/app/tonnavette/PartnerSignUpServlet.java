@@ -12,20 +12,8 @@ import java.io.IOException;
 import java.sql.Connection;
 
 
-import org.example.app.tonnavette.dao.EntrepriseDAO;
-import org.example.app.tonnavette.model.Entreprise;
-
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-
-
-import java.sql.Connection;
-import java.io.IOException;
-
-
 @WebServlet("/create-partner-account")
-public class becamePartnerServlet extends HttpServlet {
+public class PartnerSignUpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -43,9 +31,13 @@ public class becamePartnerServlet extends HttpServlet {
         try {
             Connection connection = DatabaseConnection.getConnection();
             Entreprise entreprise = new Entreprise();
-
-
+            EntrepriseDAO dao = new EntrepriseDAO(connection);
             entreprise.setNom(request.getParameter("companyName"));
+            if (dao.emailExists(request.getParameter("businessEmail"))) {
+                response.sendRedirect("./views/business-account-login.jsp?action=sign-up&error=email_exists");
+                return;
+            }
+
             entreprise.setEmail(request.getParameter("businessEmail"));
             entreprise.setHashedPassword(request.getParameter("password")); // Make sure to hash in real app
             entreprise.setPhoneNumber(request.getParameter("contactPhone"));
@@ -56,14 +48,13 @@ public class becamePartnerServlet extends HttpServlet {
 
             // You should hash this password
 
-            EntrepriseDAO dao = new EntrepriseDAO(connection);
             boolean success = dao.createEntreprise(entreprise);
 
             if (success) {
-                response.sendRedirect("/views/business-account-login.jsp?action=sign-in");
+                response.sendRedirect("./views/business-account-login.jsp?action=sign-in");
             } else {
                 request.setAttribute("error", "Failed to register entreprise.");
-                request.getRequestDispatcher("/register-entreprise.jsp").forward(request, response);
+                request.getRequestDispatcher("./views/business-account-login.jsp?action=sign-up&error=registration_failed").forward(request, response);
             }
 
         } catch (Exception e) {
