@@ -49,7 +49,7 @@ public class subscription extends HttpServlet {
             }
             request.setAttribute("selectedNavette", nav);
             // Forward to the checkout JSP
-            request.getRequestDispatcher("../webapp/views/subscriptionPage.jsp").forward(request, response);
+            request.getRequestDispatcher("./views/subscriptionPage.jsp").forward(request, response);
 
 
         } catch (NumberFormatException e) {
