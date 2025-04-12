@@ -51,7 +51,7 @@
 
 <div class="w-full mx-auto bg-white shadow-xs rounded-lg p-6">
                     <div class="flex justify-between items-center text-gray-500 text-sm">
-                       <span style="font-family:  'Outfit', 'sans-serif'" class="text-[13px] font-normal   text-gray-500">
+                       <span style="font-family:  'Outfit', 'sans-serif'" class="text-[13px] font-normal text-gray-500">
                             #NT-` + navette.id + `
                         </span>
                        <div class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
@@ -276,6 +276,8 @@
 
                 if (parseInt(navetteId) === parseInt(navId)) {
                     // Add the border class to the matched element
+                    console.log(navId, parseInt(navetteId))
+                    console.log(Nodelist)
                     Nodelist[i].classList.add("border");
                 } else {
                     // Remove the border class from other elementsx
@@ -370,7 +372,7 @@
                 <!-- Single Trip Card -->
                 <div
                         data-id="<%= nav.getId() %>"
-                        class="navette-item  bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
+                        class="navette-item  bg-white rounded-lg shadow-sm border border-lime-500 p-4 hover:shadow-md transition-shadow">
                     <!-- Header with Company and Trip ID -->
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center gap-3">
