@@ -29,7 +29,7 @@ public class PartnerSignInServlet extends HttpServlet {
                 // Login successful – create session
                 HttpSession session = request.getSession();
                 session.setAttribute("entreprise", entreprise);
-                response.sendRedirect("/views/partner-dashboard.jsp");
+                response.sendRedirect("./views/partner-dashboard.jsp");
             } else {
                 // Login failed – set error and forward back
                 request.setAttribute("error", "Invalid email or password.");
