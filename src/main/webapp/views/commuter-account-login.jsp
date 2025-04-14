@@ -5,6 +5,11 @@
   Time: 11:45 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String toastMessage = (String) request.getAttribute("toastMessage");
+    String toastType = (String) request.getAttribute("toastType");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -560,6 +565,40 @@
     // Add click listeners
     // loginTab.addEventListener('click', activateLoginTab);
     // registerTab.addEventListener('click', activateRegisterTab);
+</script>
+<% if (toastMessage != null) { %>
+<script>
+    window.onload = function () {
+        showToast("<%= toastMessage %>", "<%= toastType %>");
+    };
+</script>
+<% } %>
+<!-- Toast container -->
+<div id="toast"
+     class="fixed top-5 right-5 z-50 px-4 py-2 text-white rounded shadow hidden transition-opacity duration-300"></div>
+
+<script>
+    function showToast(message, type) {
+        const toast = document.getElementById('toast');
+        toast.className = 'fixed top-5 right-5 z-50 px-4 py-2 text-white rounded shadow transition-opacity duration-300';
+
+        if (type === 'success') {
+            toast.classList.add('bg-green-500');
+        } else {
+            toast.classList.add('bg-red-500');
+        }
+
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        toast.style.display = 'block';
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 300);
+        }, 3000);
+    }
 </script>
 </body>
 </html>
