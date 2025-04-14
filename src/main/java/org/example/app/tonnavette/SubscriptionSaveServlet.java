@@ -43,7 +43,7 @@ public class SubscriptionSaveServlet extends HttpServlet {
             request.setAttribute("toastMessage", "🚀 Subscription successful!");
             request.setAttribute("toastType", "success");
 
-            request.getRequestDispatcher("/thank-you.jsp").forward(request, response);
+            request.getRequestDispatcher("./views/commuter-dashboard.jsp").forward(request, response);
 //            }
 //        } catch (NumberFormatException e) {
 //            e.printStackTrace();
