@@ -36,7 +36,6 @@ public class Navette {
     }
     public void setId(int id) {
         this.id = id;
-
     }
     public int getSocieteId() {
         return societeId;
@@ -148,8 +147,15 @@ public class Navette {
     }
 
     public enum NavetteStatus {
-        OPEN,
-        CLOSED
+        OPEN, CLOSED, UNKNOWN;
+
+        public static NavetteStatus fromString(String status) {
+            try {
+                return valueOf(status.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                return UNKNOWN; // Or throw a custom exception
+            }
+        }
     }
 
 }
