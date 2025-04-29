@@ -9,17 +9,21 @@ public class Utilisateur {
     private String telephone;
     private String prenom;
 
-    //    public Utilisateur(
-//            int id, String nom, String email, String prof, String telephone, String prenom
-//    ) {
-//        this.id = id;
-//        this.nom = nom;
-//        this.email = email;
-//        this.prof = prof;
-//        this.telephone = telephone;
-//        this.prenom = prenom;
-//    }
-//
+
+    public Utilisateur(
+            int id, String nom, String email, String prof, String telephone, String prenom
+    ) {
+        this.id = id;
+        this.nom = nom;
+        this.email = email;
+        this.prof = prof;
+        this.telephone = telephone;
+        this.prenom = prenom;
+    }
+
+    public Utilisateur() {
+    }
+
 //    public Utilisateur(String nom, String email, String motDePasse, String prof) {
 //        this.nom = nom;
 //        this.email = email;

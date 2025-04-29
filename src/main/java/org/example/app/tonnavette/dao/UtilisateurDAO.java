@@ -27,6 +27,7 @@ public class UtilisateurDAO {
             stmt.setString(4, user.getTelephone());
             stmt.setString(5, user.getMotDePasse()); // Attention : hacher les mots de passe
             stmt.setString(6, user.getProf());
+
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -35,27 +36,29 @@ public class UtilisateurDAO {
         }
     }
 
-//    public List<Utilisateur> getAllUsers() {
-//        List<Utilisateur> utilisateurs = new ArrayList<>();
-//
-//
-//        String query = "SELECT * FROM Utilisateur";
-//        try (PreparedStatement stmt = connection.prepareStatement(query);
-//             ResultSet res = stmt.executeQuery()) {
-//            while (res.next()) {
-//                Utilisateur user = new Utilisateur(
-//                        res.getInt("id"),
-//                        res.getString("nom"),
-//                        res.getString("email"),
-//                        res.getString("role")
-//                );
-//                utilisateurs.add(user);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return utilisateurs;
-//    }
+    public List<Utilisateur> getAllUsers() {
+        List<Utilisateur> utilisateurs = new ArrayList<>();
+
+
+        String query = "SELECT * FROM Utilisateur";
+        try (PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet res = stmt.executeQuery()) {
+            while (res.next()) {
+                Utilisateur user = new Utilisateur(
+                        res.getInt("id"),
+                        res.getString("nom"),
+                        res.getString("email"),
+                        res.getString("prof"),
+                        res.getString("telephone"),
+                        res.getString("prenom")
+                );
+                utilisateurs.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return utilisateurs;
+    }
 public boolean emailExists(String email) throws SQLException {
     String sql = "SELECT COUNT(*) FROM Utilisateur WHERE email = ?";
     try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -79,7 +82,6 @@ public boolean emailExists(String email) throws SQLException {
                 utilisateur.setNom(rs.getString("nom"));
                 utilisateur.setPrenom(rs.getString("prenom"));
                 utilisateur.setEmail(rs.getString("email"));
-
 
                 // Log response
                 logger.info("This is an INFO log message");
