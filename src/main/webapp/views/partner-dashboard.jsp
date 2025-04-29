@@ -1,4 +1,5 @@
-<%--
+<%@ page import="org.example.app.tonnavette.model.Navette" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Ordinateur
   Date: 4/8/2025
@@ -6,6 +7,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    List<Navette> navettes = (List<Navette>) request.getAttribute("shuttles");
+
+%>
 <%--<html>--%>
 <%--<head>--%>
 <%--    <title>Title</title>--%>
@@ -140,14 +145,15 @@
         </div>
         <div class="flex flex-col flex-grow px-4 py-4 overflow-y-auto">
             <nav class="flex-1 space-y-2">
-                <a href="#" class="active-nav-item flex items-center px-4 py-3 text-sm font-medium rounded-lg">
+                <a href="/partner-dashboard"
+                   class="active-nav-item flex items-center px-4 py-3 text-sm font-medium rounded-lg">
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     Dashboard
                 </a>
-                <a href="#"
+                <a href="./views/add-shuttle.jsp"
                    class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
                     <i class="fas fa-shuttle-van mr-3"></i>
-                    My Shuttles
+                    New Shuttle
                 </a>
                 <a href="#"
                    class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
@@ -237,7 +243,8 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500">Active Shuttles</p>
-                        <p class="text-2xl font-bold text-gray-900 mt-1">12</p>
+                        <p class="text-2xl font-bold text-gray-900 mt-1"><%= navettes.size() %>
+                        </p>
                     </div>
                     <div class="p-3 rounded-full bg-yellow-100 text-yellow-500">
                         <i class="fas fa-shuttle-van text-xl"></i>
@@ -304,7 +311,11 @@
                         <a href="#" class="text-sm font-medium text-yellow-600 hover:text-yellow-500">View All</a>
                     </div>
                 </div>
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto mx-auto">
+                    <%
+                        if (navettes != null && !navettes.isEmpty()) {
+
+                    %>
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                         <tr>
@@ -328,57 +339,51 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
+
+                        <%
+                            for (Navette nav : navettes) {
+                        %>
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#BK-78945</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Downtown → Tech Park</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Today, 8:30 AM</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                #BK-<%= nav.getId() %>>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= nav.getVilleDepart() %>
+                                → <%= nav.getVilleArrivee() %>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= nav.getNombreAbonnes() %>
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"> <%= nav.getStatus() %></span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="#" class="text-yellow-600 hover:text-yellow-900">Details</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#BK-78944</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">University → Airport</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Today, 10:15 AM</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">In Progress</span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-yellow-600 hover:text-yellow-900">Details</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#BK-78943</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Residential → Business
-                                District
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Today, 12:45 PM</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Upcoming</span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-yellow-600 hover:text-yellow-900">Details</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#BK-78942</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tech Park → Downtown</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Today, 5:30 PM</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Upcoming</span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-yellow-600 hover:text-yellow-900">Details</a>
-                            </td>
-                        </tr>
+                        <%
+                            }
+
+                        %>
                         </tbody>
                     </table>
-                </div>
-            </div>
+                    <%
+                    } else {
+                    %>
+                    <div class="flex justify-center items-center">
+                        <%--ADD: some GIF HERE --%>
+                        <a href="#" class="p-4  rounded-lg text-center hover:bg-gray-50">
+                            <div class="mx-auto h-10 w-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500 mb-2">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700">Add Shuttle</span>
+                        </a>
 
+                    </div>
+                    <%
+                        }
+                    %>
+
+            </div>
+            </div>
             <!-- Shuttle Status -->
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div class="px-6 py-4 border-b border-gray-200">
@@ -457,7 +462,8 @@
                     <h2 class="text-lg font-medium text-gray-900">Quick Actions</h2>
                 </div>
                 <div class="p-6 grid grid-cols-2 gap-4">
-                    <a href="#" class="p-4 border border-gray-200 rounded-lg text-center hover:bg-gray-50">
+                    <a href="./views/add-shuttle.jsp"
+                       class="p-4 border border-gray-200 rounded-lg text-center hover:bg-gray-50">
                         <div class="mx-auto h-10 w-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500 mb-2">
                             <i class="fas fa-plus"></i>
                         </div>
