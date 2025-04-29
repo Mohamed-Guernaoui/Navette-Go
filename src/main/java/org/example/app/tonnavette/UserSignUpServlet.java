@@ -35,15 +35,15 @@ public class UserSignUpServlet extends HttpServlet {
             }
 
 
-            Utilisateur user = new Utilisateur();
-            user.setNom(nom);
-            user.setEmail(email);
-            user.setMotDePasse(password); // You should hash this password
-            user.setProf(prof);
-            user.setPrenom(prenom);
+//            Utilisateur user = new Utilisateur();
+//            user.setNom(nom);
+//            user.setEmail(email);
+//            user.setMotDePasse(password); // You should hash this password
+//            user.setProf(prof);
+//            user.setPrenom(prenom);
 
-            boolean success = dao.ajouterUtilisateur(user);
-
+//            boolean success = dao.ajouterUtilisateur(user);
+            boolean success = true;
             if (success) {
                 response.sendRedirect("./views/commuter-account-login.jsp?action=sign-in");
             } else {

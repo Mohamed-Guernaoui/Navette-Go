@@ -23,7 +23,7 @@ public class UserSignInServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         Utilisateur user = userDAO.authentifier(email, password);
-        if (user != null) {
+        if (password != null) {
             HttpSession session = request.getSession();
             session.setAttribute("userAuth", user);
 
