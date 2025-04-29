@@ -32,7 +32,7 @@ public class PartnerSignUpServlet extends HttpServlet {
             Connection connection = DatabaseConnection.getConnection();
             Entreprise entreprise = new Entreprise();
             EntrepriseDAO dao = new EntrepriseDAO(connection);
-            entreprise.setNom(request.getParameter("companyName"));
+            entreprise.setName(request.getParameter("companyName"));
             if (dao.emailExists(request.getParameter("businessEmail"))) {
                 response.sendRedirect("./views/business-account-login.jsp?action=sign-up&error=email_exists");
                 return;
@@ -45,6 +45,7 @@ public class PartnerSignUpServlet extends HttpServlet {
             entreprise.setFleetSize(request.getParameter("fleetSize"));
             entreprise.setOperatingAreas(request.getParameter("operatingAreas"));
             entreprise.setCompanyType(request.getParameter("companyType"));
+            entreprise.setHashedPassword(request.getParameter("newPassword"));
 
             // You should hash this password
 

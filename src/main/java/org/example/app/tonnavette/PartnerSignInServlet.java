@@ -28,12 +28,13 @@ public class PartnerSignInServlet extends HttpServlet {
             if (entreprise != null && entreprise.getHashedPassword().equals(password)) {
                 // Login successful – create session
                 HttpSession session = request.getSession();
-                session.setAttribute("entreprise", entreprise);
-                response.sendRedirect("./views/partner-dashboard.jsp");
+                session.setAttribute("loggedPartner", entreprise);
+                response.sendRedirect("./partner-dashboard");
             } else {
                 // Login failed – set error and forward back
                 request.setAttribute("error", "Invalid email or password.");
-                request.getRequestDispatcher("./views/business-account-login.jsp?action=sign-in&error=True").forward(request, response);
+                System.out.println("Invalid email or password 😎😎");
+                response.sendRedirect("./views/business-account-login.jsp?action=sign-in&error=True");
             }
 
         } catch (Exception e) {
