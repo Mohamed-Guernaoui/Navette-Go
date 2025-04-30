@@ -1,9 +1,15 @@
 /* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
+}
+
+.outfit {
+    font-family: Outfit, sans-serif;
 }
 
 /* Navbar */
