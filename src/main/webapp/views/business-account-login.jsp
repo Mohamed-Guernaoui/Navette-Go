@@ -210,7 +210,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div class="flex items-center">
             <i class="fas fa-shuttle-van text-yellow-500 text-2xl mr-2"></i>
-            <span class="text-xl font-bold text-gray-800">Shuttle<span class="text-yellow-500">Partners</span></span>
+            <span class="text-xl font-bold text-gray-800">NavToGo<span class="text-yellow-500">Partners</span></span>
         </div>
         <nav class="hidden md:flex space-x-8">
             <a href="#" class="text-gray-700 hover:text-yellow-500">Why Partner?</a>
@@ -218,7 +218,7 @@
             <a href="#" class="text-gray-700 hover:text-yellow-500">Resources</a>
             <a href="#" class="text-gray-700 hover:text-yellow-500">Contact</a>
         </nav>
-        <a href="/" class="text-sm font-medium text-yellow-600 hover:text-yellow-700">
+        <a href="/views/index.jsp" class="text-sm font-medium text-yellow-600 hover:text-yellow-700">
             <i class="fas fa-arrow-left mr-1"></i> Back to main site
         </a>
     </div>

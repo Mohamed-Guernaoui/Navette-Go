@@ -212,7 +212,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div class="flex items-center">
             <i class="fas fa-shuttle-van text-yellow-500 text-2xl mr-2"></i>
-            <span class="text-xl font-bold text-gray-800">Shuttle<span class="text-yellow-500">Rider</span></span>
+            <span class="text-xl font-bold text-gray-800">NavTo<span class="text-yellow-500">Go</span></span>
         </div>
         <nav class="hidden md:flex space-x-8">
             <a href="#" class="text-gray-700 hover:text-yellow-500">Find Shuttles</a>
@@ -505,7 +505,7 @@
             </div>
             <div class="mt-8 md:mt-0 md:order-1">
                 <p class="text-center text-sm text-gray-500">
-                    &copy; 2023 ShuttleRider. All rights reserved.
+                    &copy; 2025 NavToGO. All rights reserved.
                 </p>
             </div>
         </div>
