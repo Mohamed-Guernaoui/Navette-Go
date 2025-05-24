@@ -1,7 +1,8 @@
-package org.example.app.tonnavette;
+package org.example.app.tonnavette.web.auth;
 
 
 import jakarta.servlet.http.HttpSession;
+import org.example.app.tonnavette.DatabaseConnection;
 import org.example.app.tonnavette.dao.EntrepriseDAO;
 import org.example.app.tonnavette.model.Entreprise;
 import java.io.*;
@@ -29,6 +30,7 @@ public class PartnerSignInServlet extends HttpServlet {
                 // Login successful – create session
                 HttpSession session = request.getSession();
                 session.setAttribute("loggedPartner", entreprise);
+                session.setAttribute("userAuth", null);
                 response.sendRedirect("./partner-dashboard");
             } else {
                 // Login failed – set error and forward back

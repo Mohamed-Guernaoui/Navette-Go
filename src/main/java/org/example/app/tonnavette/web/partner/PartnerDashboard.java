@@ -1,21 +1,17 @@
-package org.example.app.tonnavette;
+package org.example.app.tonnavette.web.partner;
 
-import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.app.tonnavette.DatabaseConnection;
 import org.example.app.tonnavette.dao.EntrepriseDAO;
 import org.example.app.tonnavette.model.Entreprise;
 import org.example.app.tonnavette.model.Navette;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/partner-dashboard")
@@ -34,9 +30,9 @@ public class PartnerDashboard extends HttpServlet {
             System.out.println(partner.getId());
             EntrepriseDAO dao = new EntrepriseDAO(connection);
             List<Navette> navettes = dao.getNavettesByPartner(partner.getId());
-//
-//
-//        // Load all dashboard data
+
+
+            request.setAttribute("activePage", "dashboard"); // or "shuttles", "routes", etc.
             request.setAttribute("shuttles", navettes);
 ////        request.setAttribute("revenue", dao.getRevenueStats(partner, "monthly"));
 ////        request.setAttribute("utilization", dao.getShuttleUtilization(partner));
