@@ -2,6 +2,7 @@ package org.example.app.tonnavette.dao;
 
 import org.example.app.tonnavette.model.Navette;
 import org.example.app.tonnavette.model.Entreprise;
+import org.example.app.tonnavette.utility.NavetteMapper;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,20 +22,11 @@ public class NavetteDAO {
         String sql = "SELECT * FROM Navette";
         try (PreparedStatement ps = connection.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
-            System.out.println("Navette ID: " + rs);
-            if (!rs.next()) {
-                System.out.println("No Navette found");
-            }
             while (rs.next()) {
-                Navette n = new Navette();
-                n.setId(rs.getInt("id"));
-                n.setVilleDepart(rs.getString("villeDepart"));
-                n.setVilleArrivee(rs.getString("villeArrivee"));
-                n.setHeureDepart(rs.getString("heureDepart"));
-                n.setHeureArrivee(rs.getString("heureArrivee"));
-                n.setCreatedAt(rs.getString("createdAt"));
+                Navette n = NavetteMapper.mapFromResultSet(rs);
                 navettes.add(n);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,7 +57,7 @@ public class NavetteDAO {
                 "    n.nombreAbonnes, " +
                 "    n.createdAt, " +
                 "    e.id AS societe_id, " +
-                "    e.nom AS societe_nom, " +
+                "    e.name AS societe_nom, " +
                 " n.status  ," +
                 " n.car_plate  ," +
                 " n.car_model  ," +
@@ -91,8 +83,8 @@ public class NavetteDAO {
                     navette.setVilleArrivee(rs.getString("villeArrivee"));
                     navette.setHeureDepart(rs.getString("heureDepart"));
                     navette.setHeureArrivee(rs.getString("heureArrivee"));
-                    navette.setDebutAbonnement(rs.getString("debutAbonnement"));
-                    navette.setFinAbonnement(rs.getString("finAbonnement"));
+                    navette.setDebutAbonnement(rs.getDate("debutAbonnement"));
+                    navette.setFinAbonnement(rs.getDate("finAbonnement"));
                     navette.setNombreSieges(rs.getInt("nombreSieges"));
                     navette.setNombreAbonnes(rs.getInt("nombreAbonnes"));
                     navette.setCreatedAt(rs.getString("createdAt"));
@@ -107,7 +99,7 @@ public class NavetteDAO {
                     // Setting the associated Entreprise
                     Entreprise societe = new Entreprise();
                     societe.setId(rs.getInt("societe_id"));
-                    societe.setNom(rs.getString("societe_nom"));
+                    societe.setName(rs.getString("societe_nom"));
                     navette.setSociete(societe);
 
                 }
@@ -135,13 +127,7 @@ public class NavetteDAO {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Navette n = new Navette();
-                n.setId(rs.getInt("id"));
-                n.setVilleDepart(rs.getString("villeDepart"));
-                n.setVilleArrivee(rs.getString("villeArrivee"));
-                n.setHeureDepart(rs.getString("heureDepart"));
-                n.setHeureArrivee(rs.getString("heureArrivee"));
-                n.setCreatedAt(rs.getString("createdAt"));
+                Navette n = NavetteMapper.mapFromResultSet(rs);
                 navettes.add(n);
             }
         } catch (SQLException e) {
@@ -150,5 +136,37 @@ public class NavetteDAO {
         return navettes;
     }
 
+    public boolean createShuttle(Navette navette) throws SQLException {
+        String sql = "INSERT INTO navette ( villeDepart, villeArrivee, heureDepart,heureArrivee, debutAbonnement, finAbonnement, nombreSieges,car_model,car_plate,status,price,kilometers,societeId )VALUES (?,?, ?, ?, ?, ?,?,?, ?, ?,?,?, ?)";
 
+        try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setString(1, navette.getVilleDepart());
+            stmt.setString(2, navette.getVilleArrivee());
+            stmt.setString(3, navette.getHeureDepart());
+            stmt.setString(4, navette.getHeureArrivee());
+            stmt.setDate(5, new java.sql.Date(navette.getDebutAbonnement().getTime()));
+            stmt.setDate(6, new java.sql.Date(navette.getFinAbonnement().getTime()));
+            stmt.setInt(7, navette.getNombreSieges());
+            stmt.setString(8, navette.getCarModel());
+            stmt.setString(9, navette.getCarPlate());
+            stmt.setString(10, navette.getStatus().toString());
+            stmt.setDouble(11, navette.getPrice());
+            stmt.setInt(12, navette.getKilometers());
+            stmt.setInt(13, navette.getSocieteId());
+
+
+            int affectedRows = stmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
+
+
+
+
