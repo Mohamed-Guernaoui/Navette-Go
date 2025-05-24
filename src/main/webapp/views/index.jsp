@@ -104,7 +104,7 @@
                        class="btn-primary px-8 py-3 rounded-full font-semibold shadow text-center">
                         <i class="fas fa-search mr-2"></i> Find a Shuttle
                     </a>
-                    <a href="#organize"
+                    <a href="./business-account-login.jsp"
                        class="border-2 border-yellow-400 text-yellow-500 hover:bg-yellow-50 transition px-8 py-3 rounded-full font-semibold text-center">
                         <i class="fas fa-plus mr-2"></i> Create a Shuttle
                     </a>
@@ -166,16 +166,16 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <span>University Campus</span>
+                        <span>University Uit</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-2 inline text-gray-400" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
-                        <span>Downtown</span>
+                        <span>Meknes</span>
                     </h3>
                     <p class="text-sm text-gray-500 mb-4">Multiple daily departures</p>
-                    <a href="/shuttles"
+                    <a href="/find-navettes"
                        class="inline-block px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
                         View Schedule
                     </a>
@@ -193,16 +193,16 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <span>Tech Park</span>
+                        <span>Temara</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-2 inline text-gray-400" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
-                        <span>Business District</span>
+                        <span>Rabat</span>
                     </h3>
                     <p class="text-sm text-gray-500 mb-4">Express routes available</p>
-                    <a href="/shuttles"
+                    <a href="/find-navettes"
                        class="inline-block px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
                         View Schedule
                     </a>
@@ -220,16 +220,16 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <span>Student Housing</span>
+                        <span>Casa</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-2 inline text-gray-400" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
-                        <span>Research Center</span>
+                        <span>Mohemmadia</span>
                     </h3>
                     <p class="text-sm text-gray-500 mb-4">Weekday service only</p>
-                    <a href="/shuttles"
+                    <a href="/find-navettes"
                        class="inline-block px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
                         View Schedule
                     </a>
@@ -247,16 +247,16 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <span>Corporate Office</span>
+                        <span>Fes</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-2 inline text-gray-400" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
-                        <span>Residential Area</span>
+                        <span>Meknes</span>
                     </h3>
                     <p class="text-sm text-gray-500 mb-4">Peak hours service</p>
-                    <a href="/shuttles"
+                    <a href="/find-navettes"
                        class="inline-block px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
                         View Schedule
                     </a>
@@ -264,7 +264,7 @@
             </div>
         </div>
         <div class="text-center mt-10">
-            <a href="#" class="inline-flex items-center text-yellow-500 font-medium hover:underline">
+            <a href="/find-navettes" class="inline-flex items-center text-yellow-500 font-medium hover:underline">
                 View all destinations <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
