@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.example.app.tonnavette.model.Entreprise" %><%--
   Created by IntelliJ IDEA.
   User: Ordinateur
   Date: 4/29/2025
@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String activePage = (String) request.getAttribute("activePage");
+    Entreprise currentPartner = (Entreprise) session.getAttribute("loggedPartner");
+
+%>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -21,7 +26,6 @@
     .sidebar {
         transition: all 0.3s ease;
     }
-
 
     .active-nav-item {
         background-color: #fef9c3;
@@ -39,59 +43,63 @@
         <div class="flex flex-col flex-grow px-4 py-4 overflow-y-auto">
             <nav class="flex-1 space-y-2">
                 <a href="/partner-dashboard"
-                   class="active-nav-item flex items-center px-4 py-3 text-sm font-medium rounded-lg">
+                   class="<%= "dashboard".equals(activePage) ? " active-nav-item " : ""%> flex items-center px-4 py-3 text-sm font-medium rounded-lg">
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     Dashboard
                 </a>
-                <a href="./views/add-shuttle.jsp"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
+                <a href="/dashboard/shuttles/new"
+                   class="flex  <%= "newShuttle".equals(activePage) ? " active-nav-item " : ""%> items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
                     <i class="fas fa-shuttle-van mr-3"></i>
                     New Shuttle
                 </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-route mr-3"></i>
-                    Routes
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-calendar-alt mr-3"></i>
-                    Schedule
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-users mr-3"></i>
-                    Bookings
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-chart-line mr-3"></i>
-                    Analytics
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-wallet mr-3"></i>
-                    Payments
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-cog mr-3"></i>
-                    Settings
-                </a>
+                <%--                <a href="#"--%>
+                <%--                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">--%>
+                <%--                    <i class="fas fa-route mr-3"></i>--%>
+                <%--                    Routes--%>
+                <%--                </a>--%>
+                <%--                <a href="#"--%>
+                <%--                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">--%>
+                <%--                    <i class="fas fa-calendar-alt mr-3"></i>--%>
+                <%--                    Schedule--%>
+                <%--                </a>--%>
+                <%--                <a href="#"--%>
+                <%--                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">--%>
+                <%--                    <i class="fas fa-users mr-3"></i>--%>
+                <%--                    Bookings--%>
+                <%--                </a>--%>
+                <%--                <a href="#"--%>
+                <%--                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">--%>
+                <%--                    <i class="fas fa-chart-line mr-3"></i>--%>
+                <%--                    Analytics--%>
+                <%--                </a>--%>
+                <%--                <a href="#"--%>
+                <%--                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">--%>
+                <%--                    <i class="fas fa-wallet mr-3"></i>--%>
+                <%--                    Payments--%>
+                <%--                </a>--%>
+                <%--                <a href="#"--%>
+                <%--                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">--%>
+                <%--                    <i class="fas fa-cog mr-3"></i>--%>
+                <%--                    Settings--%>
+                <%--                </a>--%>
             </nav>
         </div>
         <div class="p-4 border-t border-gray-200">
             <div class="flex items-center">
-                <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg"
+                <img class="h-10 w-10 rounded-full"
+                     src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"
                      alt="User profile">
                 <div class="ml-3">
-                    <p class="text-sm font-medium text-gray-700">John Smith</p>
+                    <p class="text-sm font-medium text-gray-700"><%= currentPartner.getName()%>></p>
                     <p class="text-xs text-gray-500">Premium Partner</p>
                 </div>
             </div>
-            <button class="mt-4 w-full flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                <i class="fas fa-sign-out-alt mr-2"></i> Sign out
-            </button>
+            <form method="post" action="${pageContext.request.contextPath}/sign-out">
+                <button class="mt-4 w-full flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Sign out
+                </button>
+            </form>
+
         </div>
     </div>
 </div>
