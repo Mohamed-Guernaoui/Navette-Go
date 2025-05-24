@@ -362,14 +362,16 @@
             <div class="w-[43%] space-y-4">
 
                 <%
-                    List<Navette> navs = (List<Navette>) request.getAttribute("navettes");
+                    List<Navette> navs = (List<Navette>) request.getAttribute("tonNav");
                     System.out.println(navs);
                     if (navs != null && !navs.isEmpty()) {
                         for (Navette nav : navs) {
 
+
                 %>
 
                 <!-- Single Trip Card -->
+
                 <div
                         data-id="<%= nav.getId() %>"
                         class="navette-item  bg-white rounded-lg shadow-sm border border-lime-500 p-4 hover:shadow-md transition-shadow">

@@ -10,13 +10,16 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 <head>
-    <title>Login</title>
+    <title>Login - user </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+          rel="stylesheet">
+
 </head>
 <body class="bg-[#f5f4f2]">
 <nav class="relative flex flex-row justify-between items-center w-full p-7 ">
     <div class="flex flex-row gap-20">
         <div>
-            <a href="../list-navettes.jsp">
+            <a href="list-navettes.jsp">
                 <h1 style="font-family:  'Outfit', 'sans-serif'" class="text-[30px] font-bold text-[#f4b322]">
                     NavToGo</h1>
             </a>
@@ -29,7 +32,7 @@
     <form
             action="/sign-in"
             method="post"
-            class=" w-[80%] max-w-[400px] flex flex-col gap-6 justify-center items-center"
+            class=" w-[80%] max-w-[550px] p-10 bg-white shadow-md rounded-md flex flex-col gap-6 justify-center items-center"
     >
         <h1 class=" font-bold capitalize text-4xl mb-14  " style="font-family:  'Outfit', 'sans-serif'">
             Welcome Back
@@ -38,7 +41,7 @@
 
         <div class="relative w-[100%] mb-4 ">
             <input
-                    class="w-[100%] outline-none focus:border-2 rounded-md p-4 bg-white pl-5 border border-[#f3e322] focus:bg-transparent placeholder:text-black "
+                    class="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                     type="email"
                     id="email"
                     placeholder="your email"
@@ -53,7 +56,7 @@
         </div>
         <div class="relative w-[100%] mb-4 ">
             <input
-                    class="w-[100%] outline-none focus:border-2 rounded-md p-4 bg-white pl-5 border border-[#f3e322] focus:bg-transparent placeholder:text-black "
+                    class="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                     type="password"
                     id="password"
                     placeholder="your password"
@@ -67,27 +70,28 @@
             </svg>
         </div>
 
-        <button type="submit"
+        <button style="font-family:  'Inter', 'sans-serif'" type="submit"
                 class=" cursor-pointer whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80 w-fit flex ">
             Login
         </button>
 
         <div class="relative w-full flex items-center my-5 opacity-10 uppercase text-black gap-2 font-bold ">
             <hr class=" w-1/2 bg-black"/>
-            <p>or</p>
+            <p style="font-family:  'Inter', 'sans-serif'" class="text-md font-normal">or</p>
             <hr class=" w-1/2 bg-black"/>
         </div>
 
-        <button class="cursor-pointer flex items-center justify-center gap-4 w-[90%] center whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80">
+        <button style="font-family:  'Inter', 'sans-serif'"
+                class="cursor-pointer font-normal flex items-center justify-center gap-4 w-[90%] center whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80">
             <img src="https://th.bing.com/th/id/OIP.AUmnbiLoI6qsNjlDmrJ3CwHaH5?w=860&h=918&rs=1&pid=ImgDetMain"
                  class="w-5 rounded-full " alt=""/>
             Continue with Google
         </button>
 
-        <p class="mt-6 text-dark-grey text-xl text-center">
+        <p style="font-family:  'Inter', 'sans-serif'" class="mt-6 text-dark-grey text-lg font-light text-center">
             Don't have a account ?
             <span class=" underline cursor-pointer text-black">
-                <a href="signup.jsp">Sign Up</a>
+                <a href="user-signup.jsp">Sign Up</a>
               </span>
         </p>
     </form>
