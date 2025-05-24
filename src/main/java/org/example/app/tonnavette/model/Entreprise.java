@@ -2,10 +2,9 @@ package org.example.app.tonnavette.model;
 
 public class Entreprise {
     private int id;
-
-    private String Nom;
-    private String Email;
-    private String hashedPassword;
+    private String name;
+    private String email;
+    private String password;
     private String phoneNumber;
     private String contactPerson;
     private String fleetSize;
@@ -63,28 +62,28 @@ public class Entreprise {
         this.id = id;
     }
 
-    public String getNom() {
-        return Nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        Nom = nom;
+    public void setName(String nom) {
+        name = nom;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getHashedPassword() {
-        return hashedPassword;
+        return password;
     }
 
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
+    public void setHashedPassword(String password) {
+        this.password = password;
     }
 
 
