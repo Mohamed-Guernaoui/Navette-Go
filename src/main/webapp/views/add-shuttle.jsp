@@ -1,3 +1,4 @@
+<%@ page import="org.example.app.tonnavette.model.Entreprise" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -43,75 +44,14 @@
     </style>
 </head>
 <body class="flex h-screen overflow-hidden">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
 
+    Entreprise currentPartner = (Entreprise) session.getAttribute("loggedPartner");
+
+%>
 <!-- Sidebar -->
-<div class="hidden md:flex md:flex-shrink-0">
-    <div class="sidebar flex flex-col w-64 border-r border-gray-200 bg-white">
-        <div class="flex items-center h-16 px-4 border-b border-gray-200">
-            <i class="fas fa-shuttle-van text-yellow-500 text-2xl mr-2"></i>
-            <span class="text-xl font-bold text-gray-800">Shuttle<span class="text-yellow-500">Partner</span></span>
-        </div>
-        <div class="flex flex-col flex-grow px-4 py-4 overflow-y-auto">
-            <nav class="flex-1 space-y-2">
-                <a href="/partner-dashboard"
-                   class="active-nav-item flex items-center px-4 py-3 text-sm font-medium rounded-lg">
-                    <i class="fas fa-tachometer-alt mr-3"></i>
-                    Dashboard
-                </a>
-                <a href="./views/add-shuttle.jsp"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-shuttle-van mr-3"></i>
-                    New Shuttle
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-route mr-3"></i>
-                    Routes
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-calendar-alt mr-3"></i>
-                    Schedule
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-users mr-3"></i>
-                    Bookings
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-chart-line mr-3"></i>
-                    Analytics
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-wallet mr-3"></i>
-                    Payments
-                </a>
-                <a href="#"
-                   class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-yellow-50 rounded-lg">
-                    <i class="fas fa-cog mr-3"></i>
-                    Settings
-                </a>
-            </nav>
-        </div>
-        <div class="p-4 border-t border-gray-200">
-            <div class="flex items-center">
-                <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg"
-                     alt="User profile">
-                <div class="ml-3">
-                    <p class="text-sm font-medium text-gray-700">John Smith</p>
-                    <p class="text-xs text-gray-500">Premium Partner</p>
-                </div>
-            </div>
-            <button class="mt-4 w-full flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                <i class="fas fa-sign-out-alt mr-2"></i> Sign out
-            </button>
-        </div>
-    </div>
-</div>
-
-
+<jsp:include page="components/DashboardSideBar.jsp"/>
 <div class="flex-1 flex flex-col overflow-hidden">
     <header class="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200">
         <button class="text-gray-500 focus:outline-none">
@@ -126,7 +66,7 @@
 
     <!-- Desktop Header -->
     <header class="dashboard-header hidden md:flex items-center justify-between px-6 py-4 border-b border-gray-200">
-        <h1 class="text-2xl font-bold text-gray-800">Create New Shuttle </h1>
+        <h1 class="text-2xl font-bold text-gray-800">Partner Dashboard</h1>
         <div class="flex items-center space-x-4">
             <button class="p-2 text-gray-500 hover:text-gray-700 focus:outline-none">
                 <i class="fas fa-bell"></i>
@@ -135,16 +75,18 @@
                 <i class="fas fa-question-circle"></i>
             </button>
             <div class="flex items-center">
-                <img class="h-8 w-8 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg"
+                <img class="h-8 w-8 rounded-full"
+                     src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"
                      alt="User profile">
-                <span class="ml-2 text-sm font-medium text-gray-700">John Smith</span>
+                <span class="ml-2 text-sm font-medium text-gray-700"><%= currentPartner.getName()%></span>
             </div>
         </div>
     </header>
     <main class="flex-1 overflow-y-auto mx-auto p-4 md:p-6">
         <div class="w-full max-w-5xl">
+
             <!-- Form Container -->
-            <form action="${pageContext.request.contextPath}/addNavette" method="post"
+            <form action="${pageContext.request.contextPath}/save/shuttle/new" method="post"
                   class="form-container p-8 space-y-6">
                 <!-- Route Information Card -->
                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
@@ -282,6 +224,38 @@
                                 <option value="CLOSED">Temporarily Unavailable</option>
                             </select>
                         </div>
+                    </div>
+                </div>
+
+                <%--       Date Debut Date FIn         --%>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-clock text-purple-500 text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-semibold text-gray-800">Subscription Period</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-users text-gray-500 mr-2"></i>
+                                Start Date
+                            </label>
+                            <input type="date" name="debutAbonnement" required
+                                   class="input-focus w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-car text-gray-500 mr-2"></i>
+                                Finish Date
+                            </label>
+                            <input type="date" name="finAbonnement" required
+                                   class="input-focus w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+
+
                     </div>
                 </div>
 
