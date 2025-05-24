@@ -1,5 +1,7 @@
 package org.example.app.tonnavette.model;
 
+import java.util.Date;
+
 public class Navette {
     private double price;
     private int id;
@@ -8,8 +10,8 @@ public class Navette {
     private String villeArrivee;
     private String heureDepart;
     private String heureArrivee;
-    private String debutAbonnement;
-    private String finAbonnement;
+    private Date debutAbonnement;
+    private Date finAbonnement;
     private int nombreSieges;
     private int nombreAbonnes;
     private String createdAt;
@@ -68,17 +70,21 @@ public class Navette {
     public void setHeureArrivee(String heureArrivee) {
         this.heureArrivee = heureArrivee;
     }
-    public String getDebutAbonnement() {
+
+    public Date getDebutAbonnement() {
         return debutAbonnement;
     }
-    public void setDebutAbonnement(String debutAbonnement) {
+
+    public void setDebutAbonnement(Date debutAbonnement) {
         this.debutAbonnement = debutAbonnement;
 
     }
-    public String getFinAbonnement() {
+
+    public Date getFinAbonnement() {
         return finAbonnement;
     }
-    public void setFinAbonnement(String finAbonnement) {
+
+    public void setFinAbonnement(Date finAbonnement) {
         this.finAbonnement = finAbonnement;
     }
     public int getNombreSieges() {
